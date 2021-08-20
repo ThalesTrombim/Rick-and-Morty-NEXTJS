@@ -8,7 +8,7 @@ export default function Home({list}){
         <div id="list-container" className="w-11/12 m-auto h-auto flex flex-wrap justify-around">
           {list.map(item => (
             <a href={`/character/${item.id}`}>
-              <div className="w-80 h-xx mb-24 -mt-10 shadow-lg hover:scale-105 transition-transform cursor-pointer">
+              <div key={item.id} className="w-80 h-xx mb-24 -mt-10 shadow-lg hover:scale-105 transition-transform cursor-pointer">
                 <div id="top-card" className="h-3/4 w-full rounded-tr-2xl shadow-lg">
                   <img src={item.image} alt="Character Image" className="w-full h-full rounded-tr-2xl" />
                 </div>
