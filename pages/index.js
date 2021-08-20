@@ -31,7 +31,7 @@ export default function Home({list}){
 }
 
 export async function getServerSideProps() {
-const res = await fetch('https://rick-and-morty-nextjs-pearl/api/getAll.vercel.app')
+const res = await fetch('https://rick-and-morty-nextjs-pearl.vercel.app/api/getAll')
 const json = await res.json();
   
   return {
