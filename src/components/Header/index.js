@@ -3,20 +3,27 @@ import React from 'react';
 function Header(){
     return(
         <div className="
-        text-blue-600
         h-full
-        pt-5
-        px-28
-        flex
-        justify-between
+        w-10/12 
+        m-auto
         ">
-            <img src="/images/logo2.png" alt="Rick and Morty" className="w-96 h-32" />
-            <h2 className="text-5xl font-rick ">NextJS</h2>
+            <div className="h-1/2 flex justify-between">
+                <img src="/images/logo2.png" alt="Rick and Morty" className="w-80 h-28" />
+                <div>
+                    <input placeholder="Procure por um personagem" type="text" className="w-36 h-8 bg-transparent border-2 rounded-lg mt-16" />
+                </div>
+            </div>
 
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-            </svg>
-            <a  href="/">Busca</a>
+            <div className="mt-36">
+                <div className="flex h-9">
+                    <a  className="w-36 flex items-center cursor-pointer justify-center bg-white mr-5 rounded">
+                         Buscar 
+                    </a>
+                    <a className="w-48 flex items-center justify-center bg-gray-500 rounded">
+                        Mais informações
+                    </a>
+                </div>
+            </div>
         </div>
     )
 }
