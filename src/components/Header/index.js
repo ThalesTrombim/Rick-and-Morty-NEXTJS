@@ -4,8 +4,9 @@ function Header(){
     return(
         <div className="
         h-full
-        w-10/12 
+        w-11/12 
         m-auto
+        px-12
         ">
             <div className="h-1/2 flex justify-between">
                 <img src="/images/logo2.png" alt="Rick and Morty" className="w-80 h-28" />
