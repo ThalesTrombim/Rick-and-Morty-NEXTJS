@@ -2,8 +2,6 @@ import React from 'react';
 
 export default function CharacterItem({info}) {
    
-   console.log({ basePath: router.basePath});
-
     return (
       <div className="w-full h-screen bg-cover bg-center px-11 flex items-center" style={{backgroundImage: `url('/images/characters/${info.name}.jpg')`}}>
         <div className="w-1/2 h-1/2">
