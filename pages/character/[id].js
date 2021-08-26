@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default function CharacterItem({info}) {
+   
+   console.log({ basePath: router.basePath});
+
     return (
       <div className="w-full h-screen bg-cover bg-center px-11 flex items-center" style={{backgroundImage: `url('/images/characters/${info.name}.jpg')`}}>
         <div className="w-1/2 h-1/2">
@@ -24,7 +27,7 @@ export default function CharacterItem({info}) {
 }
 
 export async function getServerSideProps(context) {
-    const res = await fetch(`http://localhost:3000/api/character/${context.params.id}`);
+    const res = await fetch(`https://rick-and-morty-nextjs-pearl.vercel.app/api/character/${context.params.id}`);
     const json = await res.json()
 
     return {

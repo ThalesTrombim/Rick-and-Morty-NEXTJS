@@ -1,8 +1,6 @@
 import { Header } from '../src/components/Header';
 
 export default function Home({list}){
-  var teste = "teste";
-  
   
   return (
     <div id="Container" className="w-screen h-screen bg-purple overflow-x-hidden">
@@ -41,7 +39,7 @@ export default function Home({list}){
 }
 
 export async function getServerSideProps() {
-const res = await fetch('http://localhost:3000/api/getAll')
+const res = await fetch('https://rick-and-morty-nextjs-pearl.vercel.app/api/getAll')
 const json = await res.json();
   
   return {
