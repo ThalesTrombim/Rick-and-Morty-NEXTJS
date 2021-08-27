@@ -32,10 +32,16 @@ module.exports = {
     extend: {
       colors: {
         'purple': '#6c1c76',
+        'homebg-light': '#b4e0eb',
+        'homebg-dark': '#25282f',
       },
       height: {
         'xx': '450px',
-      }
+        '400': '400px',
+      },
+      fontFamily: {
+        teste: 'Anton',
+      },
     }
   }
 }
