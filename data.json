@@ -1,0 +1,21 @@
+{
+    "Default" : 
+    {
+        "image": "https://images5.alphacoders.com/876/876590.png",
+        "description":"Ainda não está finalizado irmão",
+        "text": "text-3xl text-white mt-5"
+    },
+    "Rick Sanchez" : 
+    {
+        "image": "https://images4.alphacoders.com/106/1065154.jpg",
+        "description":"Rick é um cientista gênio, capaz de criar invenções científicas complexas, incluindo capacetes para melhorar o cérebro, dispositivos invasores de sonhos, portais para várias dimensões diferentes, várias armas de energia e campos de força e o primeiro parque de diversões do mundo dentro do corpo de um ser humano ."
+    },
+    "Morty Smith": {
+        "image": "https://images3.alphacoders.com/115/1153265.jpg",
+        "description":"Morty é um menino jovem, bem-humorado e impressionável, que pode ser facilmente manipulado. Ele foi descrito como 'desafiado' e tem dificuldades na escola. Ele também tem uma gagueira pronunciada. Apesar de sua aparente falta de intelecto, Morty mostrou ser um bom ouvinte e segue bem as instruções."
+    },
+    "Summer Smith": {
+        "image": "https://www.tapeciarnia.pl/tapety/normalne/tapeta-dziewczyna-na-kanapie-z-serialu-rick-i-morty.jpg",
+        "description":"Morty é um menino jovem, bem-humorado e impressionável, que pode ser facilmente manipulado. Ele foi descrito como 'desafiado' e tem dificuldades na escola. Ele também tem uma gagueira pronunciada. Apesar de sua aparente falta de intelecto, Morty mostrou ser um bom ouvinte e segue bem as instruções."
+    }
+}   

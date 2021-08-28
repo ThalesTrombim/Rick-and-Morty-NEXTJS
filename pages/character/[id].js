@@ -1,9 +1,15 @@
 import React from 'react';
+import data from '../../data';
 
 export default function CharacterItem({info}) {
-   
+    var name = info.name;
+
+    if(!data[`${name}`]){
+        name = "Default";
+    }
+
     return (
-      <div className="w-full h-screen bg-cover bg-center px-11 flex items-center" style={{backgroundImage: `url('/images/characters/${info.name}.jpg')`}}>
+      <div className="w-full h-screen bg-cover bg-center px-11 flex items-center" style={{backgroundImage: `url(${data[`${name}`].image})`}}>
         <div className="w-1/2 h-1/2">
             <h2 className="text-7xl text-purple font-bold">{info.name}</h2>
             <div className="text-3xl text-white font-regular mt-5 drop-shadow-sm" >
@@ -11,16 +17,9 @@ export default function CharacterItem({info}) {
                 <p className="pb-5">{info.status}</p>
                 <p>{info.origin.name}</p>
             </div>
-                <p className="w-4/5"> Rick é um cientista gênio, capaz de criar invenções científicas complexas, 
-                    incluindo capacetes para melhorar o cérebro, dispositivos invasores de 
-                    sonhos, portais para várias dimensões diferentes, várias armas de energia
-                    e campos de força e o primeiro parque de diversões do mundo dentro do 
-                    corpo de um ser humano .
-                </p>
+                <p className={data[`${name}`].text} >{data[`${name}`].description}</p>
         </div>
       </div>
-
-       
     );
 }
 
