@@ -5,14 +5,15 @@ export default function Home({list}){
   return (
     <div id="Container" className="w-screen h-screen bg-homebg-dark overflow-x-hidden">
       <div className="w-screen h-5/6 bg-cover bg-center" 
-      style={{backgroundImage: `url('images/bg-next.png')`}}>
+          //  style={{backgroundImage: `url('images/bg-next.png')`}}
+      >
         <Header />
       </div>
       <div className="w-full">
-        <div id="list-container" className="w-10/12 m-auto h-auto grid gap-8 grid-cols-3 auto-rows-auto">
+        <div id="list-container" className="w-10/12 m-auto h-auto md:grid md:gap-8 grid-cols-4 2xl:grid-cols-5 auto-rows-auto pt-5">
           {list.map( item => (
             <a key={item.id} href={`/character/${item.id}`}>
-              <div className="w-80 bg-cover bg-center bg-homebg-light rounded-t-xl">
+              <div className="w-72 md:w-64 bg-cover bg-center bg-homebg-light rounded-t-xl mt-5 md:mt-0">
                 <img className="w-full rounded-t-xl" src={item.image} alt={item.name} />
                 <div className="rounded-b-xl">
                   <div className="h-10 mt-2 flex overflow-y-hidden justify-center">
