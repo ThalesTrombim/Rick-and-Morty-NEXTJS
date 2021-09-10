@@ -5,7 +5,7 @@ export default function Home({list}){
   return (
     <div id="Container" className="w-screen h-screen bg-homebg-dark overflow-x-hidden">
       <div className="w-screen h-5/6 bg-cover bg-center" 
-          //  style={{backgroundImage: `url('images/bg-next.png')`}}
+       style={{backgroundImage: `url('images/background.jpg')`}}
       >
         <Header />
       </div>
