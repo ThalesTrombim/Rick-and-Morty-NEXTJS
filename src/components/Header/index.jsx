@@ -8,14 +8,19 @@ function Header(){
         m-auto
         flex
         px-12
+        text-white
+        text-xl
         ">
-        <div className="m-auto w-1/2 mt-6">
-            <div className="h-1/2">
-                <img src="/images/logo2.png" alt="Rick and Morty" className="w-96 m-auto h-36" />
+        <div className="m-auto ml-0 w-2/3 mt-6 flex items-center justify-between">
+            <div>
+                <a href="/">
+                    <img src="/images/logo2.png" alt="Rick and Morty" className="w-48 m-auto h-16" />
+                </a>
             </div>
-            <div className="flex justify-around pt-28 w-full">
-                <a href="/search" className="rounded border-2 border-gray-400 w-44 flex items-center justify-center hover:bg-gray-400 h-10">Pesquisar</a>
-                <a href="#" className="rounded w-44 h-10 flex items-center justify-center bg-purple">Saiba mais</a>
+            <div className="mr-10 mt-5 h-full w-8/12 flex justify-around">
+                <a href="#">Home</a>  
+                <a href="#">Search</a>  
+                <a href="#">About</a>  
             </div>
         </div>
 

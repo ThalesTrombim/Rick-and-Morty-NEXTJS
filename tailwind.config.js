@@ -33,7 +33,8 @@ module.exports = {
       colors: {
         'purple': '#6c1c76',
         'homebg-light': '#b4e0eb',
-        'homebg-dark': '#2d2d2d',
+        'homebg-dark': '#111828',
+        'card-bg': '#202938',
       },
       height: {
         'xx': '450px',
