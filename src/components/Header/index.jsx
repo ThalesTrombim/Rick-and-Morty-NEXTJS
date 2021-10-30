@@ -3,11 +3,13 @@ import React from 'react';
 function Header(){
     return(
         <div className="
-        h-full
+        h-1/5
+        top-0
         w-11/12 
         m-auto
         flex
         px-12
+        absolute
         text-white
         text-xl
         ">

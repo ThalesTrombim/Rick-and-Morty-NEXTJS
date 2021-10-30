@@ -43,6 +43,9 @@ module.exports = {
       fontFamily: {
         teste: 'Anton',
       },
+      margin:{
+        18: '4.5rem'
+      }
     }
   }
 }
