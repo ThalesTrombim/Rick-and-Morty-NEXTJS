@@ -21,7 +21,7 @@ function Header(){
             </div>
             <div className="mr-10 mt-5 h-full w-8/12 flex justify-around">
                 <a href="#">Home</a>  
-                <a href="#">Search</a>  
+                <a href="/search">Search</a>  
                 <a href="#">About</a>  
             </div>
         </div>
