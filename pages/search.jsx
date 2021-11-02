@@ -3,8 +3,9 @@ import { Header } from '../src/components/Header';
 
 export default function Search() {
     const [character, setCharacter ] = useState([]);
-    
+
     function findCharacter(){
+        setCharacter([]);
         const search = document.getElementById('search').value;
 
         fetch('https://rickandmortyapi.com/graphql/', {
@@ -13,7 +14,7 @@ export default function Search() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ "query": `query {
-                characters(filter: { name: "summer" }) {
+                characters(filter: { name: "${search}" }) {
                     info {
                         count
                     }
@@ -38,6 +39,7 @@ export default function Search() {
             var characters = atualizado;
             characters.shift();
             setCharacter(characters);
+            console.log(character)
         })
     }
     
@@ -51,10 +53,12 @@ export default function Search() {
             <Header />
                 <div className="w-2/5 h-2/5 flex flex-col text-center text-white text-3xl">
                     <p>Pesquise por um personagem</p>
-                    {console.log(search)}
-                    {character.map(item => {
-                        <p>{item.name}</p>
-                    })}
+                    {character.map(item => (
+                        <div>
+                            <img src={item.image} alt="" />
+                            <p>{item.name}</p>
+                        </div>
+                    ))}
                     <div className="w-full mx-auto mt-20">
                         <input id="search" className="text-2xl border border-gray-500 text-white bg-transparent text-center w-10/12 rounded-full h-10" type="text" />
                         <button onClick={findCharacter}>ok</button>
