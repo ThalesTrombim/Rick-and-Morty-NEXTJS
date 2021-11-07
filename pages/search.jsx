@@ -27,8 +27,8 @@ export default function Search() {
                                 name
                             }
                     }
-                    }
-                }`})
+                }
+            }`})
         })
         .then((res) => res.json())
         .then((resposta) => {
@@ -39,7 +39,6 @@ export default function Search() {
             var characters = atualizado;
             characters.shift();
             setCharacter(characters);
-            console.log(character)
         })
     }
     

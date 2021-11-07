@@ -35,6 +35,11 @@ module.exports = {
         'homebg-light': '#b4e0eb',
         'homebg-dark': '#111828',
         'card-bg': '#202938',
+        blue: {
+          'comeco': '#8257E6',
+          'meio': '#663A9B',
+          'fim': '#451744'
+        }
       },
       height: {
         'xx': '450px',
