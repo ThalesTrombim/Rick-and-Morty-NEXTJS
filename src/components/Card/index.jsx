@@ -6,8 +6,8 @@ const round_icons = "bg-gradient-to-r from-blue-fim via-blue-meio  to-blue-comec
 export default function Card({ character }){
     return (
         <>
-            <a key={character.id} href={`/character/${character.id}`}>
-                <div className="bg-cover bg-center bg-card-bg rounded-t-xl mt-5 md:mt-0">
+            <a key={character.id} href={`/character/${character.id}`} className="w-64">
+                <div className="bg-cover w-64 bg-center bg-card-bg rounded-t-xl mt-5 md:mt-0">
                     <div className="rounded-b-xl pt-3">
                         <img className="w-11/12 h-56 m-auto" src={character.image} alt={character.name} />
                         <div className="p-3 mt-2 flex flex-col items-center overflow-y-hidden">

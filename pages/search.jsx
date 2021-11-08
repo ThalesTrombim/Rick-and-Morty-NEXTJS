@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Header } from '../src/components/Header';
+import Card from '../src/components/Card';
 
 export default function Search() {
     const [character, setCharacter ] = useState([]);
@@ -22,6 +23,7 @@ export default function Search() {
                         name
                         image
                         gender
+                        species
                         status
                         location {
                                 name
@@ -44,26 +46,31 @@ export default function Search() {
     
     return (
         <>
-            <div className="w-full h-screen flex flex-col items-center justify-center" style={{
-                    backgroundSize: 'cover',
-                    backgroundPosition:'center center', 
-                    backgroundImage: `url('images/bg-search.jpg')`
-                }}>
-            <Header />
-                <div className="w-2/5 h-2/5 flex flex-col text-center text-white text-3xl">
-                    <p>Pesquise por um personagem</p>
-                    {character.map(item => (
-                        <div>
-                            <img src={item.image} alt="" />
-                            <p>{item.name}</p>
+            <Header position="fixed" />
+            <main className="bg-homebg-dark pb-10">
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    findCharacter();
+                }} 
+                className="px-12 pt-28 text-white">
+                    <label className="py-5 flex gap-5 items-center">
+                        <h3 className="text-4xl">Pesquise por um personagem</h3>
+                        <input id="search" className="h-10 text-center text-xl bg-transparent border border-gray-500 rounded-full w-1/4" type="text" />
+                        <button className="bg-blue-500 rounded-full text-white font-semibold ml-10 py-2 px-3">
+                            Search
+                        </button>
+                    </label>
+                </form>
+                {
+                    character != '' ? (
+                        <div className="grid grid-cols-4 pl-9">
+                            {character.map( item => (
+                                <Card character={ item }/>
+                            ))}
                         </div>
-                    ))}
-                    <div className="w-full mx-auto mt-20">
-                        <input id="search" className="text-2xl border border-gray-500 text-white bg-transparent text-center w-10/12 rounded-full h-10" type="text" />
-                        <button onClick={findCharacter}>ok</button>
-                    </div>
-                </div>
-            </div>
+                    ) : <div></div>
+                }
+            </main>
         </>
     );
 }

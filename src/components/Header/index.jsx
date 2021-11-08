@@ -1,18 +1,17 @@
 import React from 'react';
 
-function Header(){
+function Header({ position }){
     return(
-        <div className="
+        <div className={`
         h-1/5
         top-0
         w-11/12 
-        m-auto
         flex
+        ${position}
         px-12
-        absolute
         text-white
         text-xl
-        ">
+        `}>
         <div className="m-auto ml-0 w-2/3 mt-6 flex items-center justify-between">
             <div>
                 <a href="/">
