@@ -41,6 +41,9 @@ module.exports = {
           'fim': '#451744'
         }
       },
+      width: {
+        '68': '17rem',
+      },
       height: {
         'xx': '450px',
         '400': '400px',

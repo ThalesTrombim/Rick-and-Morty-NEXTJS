@@ -20,6 +20,7 @@ export default function Search() {
                         count
                     }
                     results {
+                        id
                         name
                         image
                         gender
@@ -45,14 +46,14 @@ export default function Search() {
     }
     
     return (
-        <>
-            <Header position="fixed" />
+        <div className="bg-homebg-dark h-screen">
+            <Header />
             <main className="bg-homebg-dark pb-10">
                 <form onSubmit={(e) => {
                     e.preventDefault();
                     findCharacter();
                 }} 
-                className="px-12 pt-28 text-white">
+                className="px-12 text-white">
                     <label className="py-5 flex gap-5 items-center">
                         <h3 className="text-4xl">Pesquise por um personagem</h3>
                         <input id="search" className="h-10 text-center text-xl bg-transparent border border-gray-500 rounded-full w-1/4" type="text" />
@@ -63,7 +64,7 @@ export default function Search() {
                 </form>
                 {
                     character != '' ? (
-                        <div className="grid grid-cols-4 pl-9">
+                        <div className="grid grid-cols-4 pl-9 gap-6">
                             {character.map( item => (
                                 <Card character={ item }/>
                             ))}
@@ -71,6 +72,6 @@ export default function Search() {
                     ) : <div></div>
                 }
             </main>
-        </>
+        </div>
     );
 }

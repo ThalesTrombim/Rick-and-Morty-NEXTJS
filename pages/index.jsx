@@ -11,7 +11,7 @@ export default function Home({list}){
         <Header />
       </div>
       <div className="w-full">
-        <div id="list-container" className="w-10/12 m-auto h-auto md:grid md:gap-8 grid-cols-4 2xl:grid-cols-5 auto-rows-auto pt-5">
+        <div id="list-container" className="w-11/12 m-auto h-auto md:grid md:gap-8 grid-cols-4 2xl:grid-cols-5 auto-rows-auto pt-5">
           {list.map( item => (
             <Card character={ item }/>
           ))}
