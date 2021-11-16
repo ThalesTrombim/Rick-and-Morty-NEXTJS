@@ -9,6 +9,19 @@ export default function Home({list}){
        style={{backgroundImage: `url('images/background.png')`}}
       >
         <Header />
+
+    <main className="mt-28 ml-12 w-1/2">
+      <h1 className="font-semibold text-5xl mb-5">
+        Project made with nextjs
+      </h1>
+      <p className="text-2xl">
+        Developed using the main
+        features that NextJS has.
+        Here you find all characters
+        from the Rick and Morty series and some information
+        about them too.
+      </p>
+    </main>
       </div>
       <div className="w-full">
         <div id="list-container" className="w-11/12 m-auto h-auto md:grid md:gap-8 grid-cols-4 2xl:grid-cols-5 auto-rows-auto pt-5">
