@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '../src/components/Header';
 import Card from '../src/components/Card';
 import Slider from 'react-slick';
@@ -8,8 +8,19 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Search() {
     const [character, setCharacter ] = useState([]);
     const height = character != '' ? 'h-full' : 'h-screen';
+    
+    const [width, setWidth] = useState(0);
+        useEffect(() => {
+            setWidth(window.innerWidth);
+    }); 
+
+    var bg = '';
+    if(width >= 400 ){
+        bg = "url('images/bg-search-black.jpg')"
+    }
 
     function findCharacter(){
+
         setCharacter([]);
 
         const searchInput = document.getElementById('search');
@@ -63,36 +74,44 @@ export default function Search() {
         centerPadding: '-20px',
         initialSlide: 1,
       };
-    
+
     return (
         <div className={`bg-homebg-dark ${height} text-white`}>
             <Header />
             <main className="md:bg-card-bg md:h-5/6 md:m-auto md:mt-10">
-                <div className='flex md:h-full'>
+                <div className='md:flex md:h-full'>
                     <form onSubmit={(e) => {
                         e.preventDefault();
                         findCharacter();
                     }} 
-                    className="w-10/12 md:w-2/5 text-center md:flex md:flex-col md:justify-center">
+                    className="w-10/12 md:w-2/5 text-center md:flex md:flex-col md:justify-center m-auto">
                         <label className="flex flex-col gap-y-8">
-                            <h3 className="text-4xl">Pesquise por um personagem</h3>
-                            <div className='flex justify-between'>
-                                <input id="search" className="border-2 border-white rounded-full h-10 text-center bg-transparent" type="text" />
-                                <button className="bg-blue-600 w-20 h-8 rounded-full m-auto">
+                            <h3 className="text-4xl md:text-5xl">Pesquise por um personagem</h3>
+                            <div className='flex justify-between md:justify-center md:items-center md:gap-4'>
+                                <input id="search" className="border-2 border-white rounded-full h-10 text-center bg-transparent md:w-68" type="text" />
+                                <button className="bg-blue-600 w-20 h-8 rounded-full">
                                     Search 
                                 </button>
                             </div>
                         </label>
                     </form>
-                    <div className='bg-gray-500 md:h-full md:w-3/5 md:px-7 md:bg-center md:bg-cover md:items-center md:py-48' style={{backgroundImage: `url('images/bg-search-black.jpg')`}}>
+                    <div className='bg-homebg-dark md:h-full md:w-3/5 md:px-7 md:bg-center md:bg-cover md:items-center md:py-50' style={{backgroundImage: bg}}>
                         {
                             character != '' ? (
-                                <div className="flex items-center md:flex-row md:h-full md:w-full">
-                                    <Slider {...settings} className='md:w-full md:h-full'>
-                                        {character.map( item => (
-                                            <Card character={ item } />
-                                        ))}
-                                    </Slider>
+                                <div className="flex flex-col items-center md:flex-row md:h-full md:w-full">
+                                    { width >= 400 ? (
+                                        <Slider {...settings} className='md:w-full md:h-full'>
+                                            {character.map( item => ( 
+                                                <Card character={ item } />
+                                            ))}
+                                        </Slider>
+                                    ) : 
+                                        <>
+                                            {character.map( item => ( 
+                                                <Card character={ item } />
+                                            ))}
+                                        </>
+                                        }
                                 </div>
                             ) : <div></div>
                         }
