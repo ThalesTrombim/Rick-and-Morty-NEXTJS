@@ -47,6 +47,7 @@ module.exports = {
       height: {
         'xx': '450px',
         '400': '400px',
+        '9/11': '86%'
       },
       fontFamily: {
         teste: 'Anton',

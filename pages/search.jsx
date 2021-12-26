@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Header } from '../src/components/Header';
 import Card from '../src/components/Card';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Search() {
     const [character, setCharacter ] = useState([]);
@@ -49,36 +52,51 @@ export default function Search() {
             searchInput.value = '';
         })
     }
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '-20px',
+        initialSlide: 1,
+      };
     
     return (
         <div className={`bg-homebg-dark ${height} text-white`}>
             <Header />
-            <main className="md:bg-red-500 md:w-9/12 md:m-auto">
-                <div>
+            <main className="md:bg-card-bg md:h-5/6 md:m-auto md:mt-10">
+                <div className='flex md:h-full'>
                     <form onSubmit={(e) => {
                         e.preventDefault();
                         findCharacter();
                     }} 
-                    className="w-10/12 m-auto text-center">
+                    className="w-10/12 md:w-2/5 text-center md:flex md:flex-col md:justify-center">
                         <label className="flex flex-col gap-y-8">
                             <h3 className="text-4xl">Pesquise por um personagem</h3>
                             <div className='flex justify-between'>
                                 <input id="search" className="border-2 border-white rounded-full h-10 text-center bg-transparent" type="text" />
                                 <button className="bg-blue-600 w-20 h-8 rounded-full m-auto">
-                                    Search
+                                    Search 
                                 </button>
                             </div>
                         </label>
                     </form>
-                    {
-                        character != '' ? (
-                            <div className="flex flex-col items-center">
-                                {character.map( item => (
-                                    <Card character={ item } />
-                                ))}
-                            </div>
-                        ) : <div></div>
-                    }
+                    <div className='bg-gray-500 md:h-full md:w-3/5 md:px-7 md:bg-center md:bg-cover md:items-center md:py-48' style={{backgroundImage: `url('images/bg-search-black.jpg')`}}>
+                        {
+                            character != '' ? (
+                                <div className="flex items-center md:flex-row md:h-full md:w-full">
+                                    <Slider {...settings} className='md:w-full md:h-full'>
+                                        {character.map( item => (
+                                            <Card character={ item } />
+                                        ))}
+                                    </Slider>
+                                </div>
+                            ) : <div></div>
+                        }
+                    </div>
                 </div>
             </main>
         </div>
