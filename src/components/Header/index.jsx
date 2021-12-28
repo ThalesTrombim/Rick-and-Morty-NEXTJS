@@ -12,7 +12,8 @@ function Header({ position }){
                 <div className="flex justify-around md:w-1/2 md:self-end md:text-lg">
                     <a href="/">Home</a>
                     <a href="/search">Search</a>  
-                    <a href="#">About</a>
+                    <a href="/about">About</a>
+                    <a href="/developer">Developer</a>
                 </div>
             </div>
         </div>
