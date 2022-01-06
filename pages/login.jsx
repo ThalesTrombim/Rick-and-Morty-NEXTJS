@@ -1,6 +1,16 @@
 import { Header } from '../src/components/Header';
+import { useForm } from 'react-hook-form';
+import { useContext } from 'react';
+import { AuthContext } from '../src/contexts/AuthContext';
 
 export default function Login() {
+    const { register, handleSubmit } = useForm();
+    const { signIn } = useContext(AuthContext);
+    
+    async function handleSignIn(data) {
+        await signIn(data);
+    }
+
     return (
         <div className='bg-homebg-dark h-screen'>
             <Header />
@@ -9,10 +19,26 @@ export default function Login() {
 
                 <span>Login</span>
 
-                <form className='text-xl flex flex-col md:w-1/2 w-full px-2 md:px-0 gap-10' action="">
-                    <input className='h-12 rounded-lg pl-2 bg-transparent border-2 border-gray-700' type="text" placeholder='name'/>
+                <form className='text-xl flex flex-col md:w-1/2 w-full px-2 md:px-0 gap-10' onSubmit={handleSubmit(handleSignIn)}>
+                    <input 
+                        {...register('email')}
+                        className='h-12 rounded-lg pl-2 bg-transparent border-2 border-gray-700' 
+                        type="email" 
+                        placeholder='email'
+                        name='email'
+                    />
 
-                    <input className='h-12 rounded-lg pl-2 bg-transparent border-2 border-gray-700' type="text" placeholder='password'/>
+                    <input 
+                        {...register('password')}
+                        className='h-12 rounded-lg pl-2 bg-transparent border-2 border-gray-700' 
+                        type="password" 
+                        placeholder='password'
+                        name='password'    
+                    />
+
+                    <button type='submit'>
+                        login
+                    </button>
                 </form>
             </div>
 
