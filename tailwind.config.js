@@ -35,6 +35,7 @@ module.exports = {
         'homebg-light': '#b4e0eb',
         'homebg-dark': '#111828',
         'card-bg': '#202938',
+        'special': 'rgba(0, 0, 0, .4)',
         blue: {
           'comeco': '#8257E6',
           'meio': '#663A9B',

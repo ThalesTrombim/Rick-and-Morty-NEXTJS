@@ -1,62 +1,71 @@
 import { Header } from '../src/components/Header';
 import { useForm } from 'react-hook-form';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
+import { Modal } from '../src/components/Modal';
+import { ModalContext } from '../src/contexts/ModalContext';
 
 export default function Login() {
     const { register, handleSubmit } = useForm();
     const { signIn } = useContext(AuthContext);
+    const [active, setActive] = useState(true);
+
     
     async function handleSignIn(data) {
         await signIn(data);
     }
 
     return (
-        <div className='bg-homebg-dark h-screen'>
-            <Header />
+        <ModalContext.Provider value={{ active, setActive }}>
+            <div className='bg-homebg-dark h-screen'>
+                <Modal />
 
-            <div className='md:w-5/6 md:mx-auto md:mt-40 bg-card-bg rounded-xl md:flex'>
+                <Header />
 
-                <div className='md:w-1/3 text-center md:rounded-l-xl md:py-16 text-white'>
+                <div className='md:w-5/6 md:mx-auto md:mt-40 bg-card-bg rounded-xl md:flex'>
 
-                    <form className='md:flex md:flex-col md:p-5 md:gap-10' onSubmit={handleSubmit(handleSignIn)}>
+                    <div className='md:w-1/3 text-center md:rounded-l-xl md:py-16 text-white'>
 
-                        <span className='text-xl'>Login</span>
+                        <form className='md:flex md:flex-col md:p-5 md:gap-10' onSubmit={handleSubmit(handleSignIn)}>
 
-                        <input 
-                            {...register('email')}
-                            className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
-                            type="email" 
-                            placeholder='email'
-                            name='email'
-                        />
+                            <span className='text-xl'>Login</span>
 
-                        <input 
-                            {...register('password')}
-                            className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
-                            type="password" 
-                            placeholder='password'
-                            name='password'    
-                        />
+                            <input 
+                                {...register('email')}
+                                className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                                type="email" 
+                                placeholder='email'
+                                name='email'
+                            />
 
-                        <div className='md:flex md:justify-between font-semibold'>
-                            <a className='bg-white text-black rounded-full py-3 px-4 cursor-pointer' type='submit'>
-                                create account
-                            </a>
+                            <input 
+                                {...register('password')}
+                                className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                                type="password" 
+                                placeholder='password'
+                                name='password'    
+                            />
 
-                            <button className='bg-blue-700 rounded-full py-3 px-10' type='submit'>
-                                login
-                            </button>
-                        </div>
-                    </form>
+                            <div className='md:flex md:justify-between font-semibold'>
+                                <a className='bg-white text-black rounded-full py-3 px-4 cursor-pointer' type='submit'>
+                                    create account
+                                </a>
+
+                                <button className='bg-blue-700 rounded-full py-3 px-10' type='submit'>
+                                    login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div 
+                        className='bg-red-500 md:w-2/3 md:rounded-r-xl bg-cover'
+                        style={{backgroundImage: `url('images/login.png')`}}
+                        >
+                    </div>
                 </div>
-                <div 
-                    className='bg-red-500 md:w-2/3 md:rounded-r-xl bg-cover'
-                    style={{backgroundImage: `url('images/login.png')`}}
-                    >
-                </div>
+
             </div>
-
-        </div>
+        </ModalContext.Provider>
+    
     )
 }
