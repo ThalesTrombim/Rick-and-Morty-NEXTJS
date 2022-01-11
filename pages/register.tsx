@@ -17,11 +17,19 @@ export default function Login() {
 
             <div className='md:w-5/6 md:mx-auto md:mt-40 bg-card-bg rounded-xl md:flex'>
 
-                <div className='md:w-1/3 text-center md:rounded-l-xl md:py-16 text-white'>
+                <div className='md:w-1/3 text-center md:rounded-l-xl md:py-10 text-white'>
 
                     <form className='md:flex md:flex-col md:p-5 md:gap-10' onSubmit={handleSubmit(handleSignIn)}>
 
-                        <span className='text-xl'>Login</span>
+                        <span className='text-xl'>Create account</span>
+
+                        <input 
+                            {...register('email')}
+                            className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                            type="text" 
+                            placeholder='name'
+                            name='name'
+                        />
 
                         <input 
                             {...register('email')}
@@ -39,13 +47,18 @@ export default function Login() {
                             name='password'    
                         />
 
-                        <div className='md:flex md:justify-between font-semibold'>
-                            <a className='bg-white text-black rounded-full py-3 px-4 cursor-pointer' type='submit'>
-                                create account
-                            </a>
+                        <input 
+                            {...register('password')}
+                            className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                            type="password" 
+                            placeholder='repeat password'
+                            name='password'    
+                        />
 
-                            <button className='bg-blue-700 rounded-full py-3 px-10' type='submit'>
-                                login
+                        <div className='md:flex md:justify-center font-semibold'>
+
+                            <button className='bg-blue-700 rounded-full py-3 px-20' type='submit'>
+                                create account
                             </button>
                         </div>
                     </form>

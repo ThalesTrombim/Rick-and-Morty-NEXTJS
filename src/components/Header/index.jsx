@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header({ position }){
+function Header({ position } = undefined ){
     return(
         <div className="">
             <div className="text-white flex flex-col gap-5 pb-5 md:flex-row md:w-9/12 md:m-auto md:justify-between md:items-center">
