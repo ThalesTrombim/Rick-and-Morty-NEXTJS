@@ -3,12 +3,12 @@ import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
 
-export default function Login() {
+export default function Register() {
     const { register, handleSubmit } = useForm();
-    const { signIn } = useContext(AuthContext);
+    const { createAccount } = useContext(AuthContext);
     
     async function handleSignIn(data) {
-        await signIn(data);
+        await createAccount(data);
     }
 
     return (
@@ -24,7 +24,7 @@ export default function Login() {
                         <span className='text-xl'>Create account</span>
 
                         <input 
-                            {...register('email')}
+                            {...register('name')}
                             className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
                             type="text" 
                             placeholder='name'

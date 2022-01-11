@@ -39,8 +39,20 @@ export function AuthProvider({ children }) {
         Router.push('/');
     }
 
+    async function createAccount({ name, email, password }){
+        const res = await api.post('/users', { name, email, password }).catch( (error) => {
+            console.log(JSON.stringify(error))
+        }) 
+
+        console.log(res);
+
+        // setUser(user)
+
+        Router.push('/');
+    }
+
     return (
-        <AuthContext.Provider value={{ isAuthenticated, user, signIn }}>
+        <AuthContext.Provider value={{ isAuthenticated, user, signIn, createAccount }}>
             { children }
         </AuthContext.Provider>
     )
