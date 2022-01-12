@@ -1,5 +1,7 @@
-import { createContext, useState } from 'react';
-import { setCookie } from 'nookies';
+import { createContext, useEffect, useState } from 'react';
+import { setCookie, parseCookies } from 'nookies';
+import Router from 'next/router';
+
 import { api } from '../services/api';
 
 export const AuthContext = createContext({})
@@ -9,25 +11,52 @@ export function AuthProvider({ children }) {
 
     const isAuthenticated = !!user;
 
+    useEffect(() => {
+        const { 'randm.token': token } = parseCookies();
+
+        if(token){
+            
+        }
+
+    }, [])
+
     async function signIn({ email, password }){
 
-        const res = await api.post('/login', { email, password }).catch( (error) => {
-                console.log(JSON.stringify(error))
-            }) 
+        try {
+            const res = await api.post('/login', { email, password })
+            const { token, user } = res.data;
 
-        const { token, user } = res.data;
+            setCookie(undefined, 'randm.token', token, {
+                maxAge: 60 * 60 * 24, // 1 day
+            })
 
-        console.log(token);
+            setUser(user)
 
-        setCookie(undefined, 'randm.token', token, {
-            maxAge: 60 * 60 * 1, // 1 day
-        })
+            Router.push('/');
+            return user;
+        } catch(err) {
+            const error = err.response.data;
+            
+            return error;
+        }
+        
+        
+    }
 
-        setUser(user)
+    async function createAccount({ name, email, password }){
+        const res = await api.post('/users', { name, email, password }).catch( (error) => {
+            console.log(JSON.stringify(error))
+        }) 
+
+        console.log(res);
+
+        // setUser(user)
+
+        Router.push('/');
     }
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, user, signIn }}>
+        <AuthContext.Provider value={{ isAuthenticated, user, signIn, createAccount }}>
             { children }
         </AuthContext.Provider>
     )

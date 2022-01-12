@@ -1,47 +1,84 @@
 import { Header } from '../src/components/Header';
 import { useForm } from 'react-hook-form';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
+import { Modal } from '../src/components/Modal';
+import { ModalContext } from '../src/contexts/ModalContext';
 
 export default function Login() {
     const { register, handleSubmit } = useForm();
     const { signIn } = useContext(AuthContext);
+    const [active, setActive] = useState(false);
+
     
     async function handleSignIn(data) {
-        await signIn(data);
+        const res = await signIn(data)
+
+        const error = res.error;
+
+        if(error){
+            console.log(error)
+            setActive(true)
+        }
+
+        // const { error } = res.error;
+
+        // if(error){
+        //     console.log('tem erro', error)
+        // }
     }
 
     return (
-        <div className='bg-homebg-dark h-screen'>
-            <Header />
+        <ModalContext.Provider value={{ active, setActive }}>
+            <div className='bg-homebg-dark h-screen'>
+                <Modal />
 
-            <div className='bg-card-bg w-5/6 md:w-1/2 m-auto mt-40 md:mt-60 flex text-white flex-col items-center gap-8 text-2xl py-8 rounded-xl'>
+                <Header />
 
-                <span>Login</span>
+                <div className='md:w-5/6 md:mx-auto md:mt-40 bg-card-bg rounded-xl md:flex'>
 
-                <form className='text-xl flex flex-col md:w-1/2 w-full px-2 md:px-0 gap-10' onSubmit={handleSubmit(handleSignIn)}>
-                    <input 
-                        {...register('email')}
-                        className='h-12 rounded-lg pl-2 bg-transparent border-2 border-gray-700' 
-                        type="email" 
-                        placeholder='email'
-                        name='email'
-                    />
+                    <div className='md:w-1/3 text-center md:rounded-l-xl md:py-16 text-white'>
 
-                    <input 
-                        {...register('password')}
-                        className='h-12 rounded-lg pl-2 bg-transparent border-2 border-gray-700' 
-                        type="password" 
-                        placeholder='password'
-                        name='password'    
-                    />
+                        <form className='md:flex md:flex-col md:p-5 md:gap-10' onSubmit={handleSubmit(handleSignIn)}>
 
-                    <button type='submit'>
-                        login
-                    </button>
-                </form>
+                            <span className='text-xl'>Login</span>
+
+                            <input 
+                                {...register('email')}
+                                className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                                type="email" 
+                                placeholder='email'
+                                name='email'
+                            />
+
+                            <input 
+                                {...register('password')}
+                                className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                                type="password" 
+                                placeholder='password'
+                                name='password'    
+                            />
+
+                            <div className='md:flex md:justify-between font-semibold'>
+                                <a className='bg-white text-black rounded-full py-3 px-4 cursor-pointer' type='submit'>
+                                    create account
+                                </a>
+
+                                <button className='bg-blue-700 rounded-full py-3 px-10' type='submit'>
+                                    login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div 
+                        className='bg-red-500 md:w-2/3 md:rounded-r-xl bg-cover'
+                        style={{backgroundImage: `url('images/login.png')`}}
+                        >
+                    </div>
+                </div>
+
             </div>
-
-        </div>
+        </ModalContext.Provider>
+    
     )
 }
