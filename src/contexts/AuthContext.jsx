@@ -22,21 +22,25 @@ export function AuthProvider({ children }) {
 
     async function signIn({ email, password }){
 
-        const res = await api.post('/login', { email, password }).catch( (error) => {
-                console.log(JSON.stringify(error))
-            }) 
+        try {
+            const res = await api.post('/login', { email, password })
+            const { token, user } = res.data;
 
-        const { token, user } = res.data;
+            setCookie(undefined, 'randm.token', token, {
+                maxAge: 60 * 60 * 24, // 1 day
+            })
 
-        console.log(token);
+            setUser(user)
 
-        setCookie(undefined, 'randm.token', token, {
-            maxAge: 60 * 60 * 24, // 1 day
-        })
-
-        setUser(user)
-
-        Router.push('/');
+            Router.push('/');
+            return user;
+        } catch(err) {
+            const error = err.response.data;
+            
+            return error;
+        }
+        
+        
     }
 
     async function createAccount({ name, email, password }){

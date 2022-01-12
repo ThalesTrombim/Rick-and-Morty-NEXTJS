@@ -8,11 +8,24 @@ import { ModalContext } from '../src/contexts/ModalContext';
 export default function Login() {
     const { register, handleSubmit } = useForm();
     const { signIn } = useContext(AuthContext);
-    const [active, setActive] = useState(true);
+    const [active, setActive] = useState(false);
 
     
     async function handleSignIn(data) {
-        await signIn(data);
+        const res = await signIn(data)
+
+        const error = res.error;
+
+        if(error){
+            console.log(error)
+            setActive(true)
+        }
+
+        // const { error } = res.error;
+
+        // if(error){
+        //     console.log('tem erro', error)
+        // }
     }
 
     return (
