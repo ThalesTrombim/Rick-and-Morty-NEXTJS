@@ -7,9 +7,8 @@ import { ModalContext } from '../src/contexts/ModalContext';
 
 export default function Login() {
     const { register, handleSubmit } = useForm();
-    const { signIn } = useContext(AuthContext);
+    const { signIn, user } = useContext(AuthContext);
     const [active, setActive] = useState(false);
-
     
     async function handleSignIn(data) {
         const res = await signIn(data)
@@ -20,12 +19,6 @@ export default function Login() {
             console.log(error)
             setActive(true)
         }
-
-        // const { error } = res.error;
-
-        // if(error){
-        //     console.log('tem erro', error)
-        // }
     }
 
     return (
@@ -74,6 +67,7 @@ export default function Login() {
                         className='bg-red-500 md:w-2/3 md:rounded-r-xl bg-cover'
                         style={{backgroundImage: `url('images/login.png')`}}
                         >
+                            <p>{user.name}</p>
                     </div>
                 </div>
 

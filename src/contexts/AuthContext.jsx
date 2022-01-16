@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
         const { 'randm.token': token } = parseCookies();
 
         if(token){
-            
+            setUser(user)
         }
 
     }, [])
@@ -33,7 +33,9 @@ export function AuthProvider({ children }) {
             setUser(user)
 
             Router.push('/');
+
             return user;
+
         } catch(err) {
             const error = err.response.data;
             

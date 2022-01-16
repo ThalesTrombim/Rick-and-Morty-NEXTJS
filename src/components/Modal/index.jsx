@@ -26,7 +26,7 @@ export function Modal() {
                     <div className='bg-card-bg text-white flex flex-col items-center gap-8 py-8 rounded-b-2xl'>
                         <h3 className='font-bold text-4xl'>Ooops!</h3>
                         <span className='text-xl text-gray-300'>email or password incorrect</span>
-                        
+                        <p>{user.name}</p>
                         <button className='bg-blue-700 rounded-full py-3 px-10 font-medium'>
                             Try again
                         </button>
