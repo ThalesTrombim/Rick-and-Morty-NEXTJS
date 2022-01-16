@@ -5,10 +5,17 @@ import { AuthContext } from '../src/contexts/AuthContext';
 
 export default function Register() {
     const { register, handleSubmit } = useForm();
-    const { createAccount } = useContext(AuthContext);
+    const { createAccount, setActive } = useContext(AuthContext);
     
-    async function handleSignIn(data) {
-        await createAccount(data);
+    async function handleCreateAccount(data) {
+        const res = await createAccount(data);
+
+        if(!res.error){
+            return
+        }
+
+        setActive(true)
+        
     }
 
     return (
@@ -19,7 +26,7 @@ export default function Register() {
 
                 <div className='md:w-1/3 text-center md:rounded-l-xl md:py-10 text-white'>
 
-                    <form className='md:flex md:flex-col md:p-5 md:gap-10' onSubmit={handleSubmit(handleSignIn)}>
+                    <form className='md:flex md:flex-col md:p-5 md:gap-10' onSubmit={handleSubmit(handleCreateAccount)}>
 
                         <span className='text-xl'>Create account</span>
 
@@ -48,7 +55,7 @@ export default function Register() {
                         />
 
                         <input 
-                            {...register('password')}
+                            // {...register('password')}
                             className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
                             type="password" 
                             placeholder='repeat password'

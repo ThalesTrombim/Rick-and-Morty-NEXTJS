@@ -11,11 +11,26 @@ export function AuthProvider({ children }) {
 
     const isAuthenticated = !!user;
 
-    useEffect(() => {
+    useEffect( async () => {
         const { 'randm.token': token } = parseCookies();
 
         if(token){
-            setUser(user)
+            try {
+                const res = await api.get('/profile', {
+                    headers: {
+                        authorization: `Bearer ${token}`
+                    }
+                });
+
+                const { name } = res.data.decoded;
+                
+                setUser(name)
+
+            } catch(err) {
+                console.log(err.response.data)
+            }
+            
+            // setUser(user)
         }
 
     }, [])
@@ -24,17 +39,14 @@ export function AuthProvider({ children }) {
 
         try {
             const res = await api.post('/login', { email, password })
-            const { token, user } = res.data;
+            const { token } = res.data;
 
             setCookie(undefined, 'randm.token', token, {
                 maxAge: 60 * 60 * 24, // 1 day
             })
 
-            setUser(user)
-
-            Router.push('/');
-
-            return user;
+            // Router.push('/');
+            return token;
 
         } catch(err) {
             const error = err.response.data;
@@ -46,15 +58,20 @@ export function AuthProvider({ children }) {
     }
 
     async function createAccount({ name, email, password }){
-        const res = await api.post('/users', { name, email, password }).catch( (error) => {
-            console.log(JSON.stringify(error))
-        }) 
+        try {
 
-        console.log(res);
+            const res = await api.post('/users', { name, email, password })
+            console.log(res);
+            
+        } catch(err) {
+            const error = err.response.data;
+
+            return error
+        }
 
         // setUser(user)
 
-        Router.push('/');
+        // Router.push('/');
     }
 
     return (

@@ -9,22 +9,25 @@ export default function Login() {
     const { register, handleSubmit } = useForm();
     const { signIn, user } = useContext(AuthContext);
     const [active, setActive] = useState(false);
-    
+    const [textError, setTextError ] = useState('');
+
     async function handleSignIn(data) {
-        const res = await signIn(data)
 
-        const error = res.error;
+            const res = await signIn(data);
 
-        if(error){
-            console.log(error)
+            if(!res.error){
+                return
+            } 
+
             setActive(true)
-        }
+            console.log(res)
+            setTextError(res.error)
     }
 
     return (
-        <ModalContext.Provider value={{ active, setActive }}>
+        <ModalContext.Provider value={{ active, setActive, setTextError }}>
             <div className='bg-homebg-dark h-screen'>
-                <Modal />
+                <Modal text={textError} />
 
                 <Header />
 
@@ -42,6 +45,7 @@ export default function Login() {
                                 type="email" 
                                 placeholder='email'
                                 name='email'
+                                value={'teste@teste.com'}
                             />
 
                             <input 
@@ -49,7 +53,8 @@ export default function Login() {
                                 className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
                                 type="password" 
                                 placeholder='password'
-                                name='password'    
+                                name='password'  
+                                value={'123'}  
                             />
 
                             <div className='md:flex md:justify-between font-semibold'>
@@ -67,7 +72,9 @@ export default function Login() {
                         className='bg-red-500 md:w-2/3 md:rounded-r-xl bg-cover'
                         style={{backgroundImage: `url('images/login.png')`}}
                         >
-                            <p>{user.name}</p>
+                            { user && (
+                                <p>{user}</p>
+                            )}
                     </div>
                 </div>
 
