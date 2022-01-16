@@ -1,5 +1,14 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
-const ModalContext = createContext();
+export const ModalContext = createContext({});
 
-export { ModalContext };
+export function ModalProvider({ children }) {
+    const [ active, setActive ] = useState(false)
+    const [textError, setTextError ] = useState('');
+
+    return (
+        <ModalContext.Provider value={{ active, setActive, textError, setTextError }}>
+            { children }
+        </ModalContext.Provider>
+    )
+}

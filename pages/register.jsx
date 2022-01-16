@@ -2,11 +2,14 @@ import { Header } from '../src/components/Header';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
+import { ModalContext } from '../src/contexts/ModalContext';
+import { Modal } from '../src/components/Modal';
 
 export default function Register() {
     const { register, handleSubmit } = useForm();
-    const { createAccount, setActive } = useContext(AuthContext);
-    
+    const { createAccount } = useContext(AuthContext);
+    const { setActive, textError, setTextError } = useContext(ModalContext);
+
     async function handleCreateAccount(data) {
         const res = await createAccount(data);
 
@@ -15,12 +18,13 @@ export default function Register() {
         }
 
         setActive(true)
-        
+        setTextError(res.error);
     }
 
     return (
         <div className='bg-homebg-dark h-screen'>
             <Header />
+            <Modal text={textError}/>
 
             <div className='md:w-5/6 md:mx-auto md:mt-40 bg-card-bg rounded-xl md:flex'>
 
