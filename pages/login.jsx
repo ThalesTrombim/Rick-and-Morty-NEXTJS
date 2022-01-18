@@ -43,7 +43,6 @@ export default function Login() {
                             type="email" 
                             placeholder='email'
                             name='email'
-                            value={'teste@teste.com'}
                         />
 
                         <input 
@@ -52,7 +51,6 @@ export default function Login() {
                             type="password" 
                             placeholder='password'
                             name='password'  
-                            value={'12'}  
                         />
 
                         <div className='md:flex md:justify-between font-semibold'>
