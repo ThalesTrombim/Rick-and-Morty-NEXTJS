@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Header } from '../src/components/Header';
 import { api } from '../src/services/api';
 import { parseCookies } from 'nookies';
+import { ModalContext } from '../src/contexts/ModalContext';
+
+import Router from 'next/router';
+import { Modal } from '../src/components/Modal';
 
 export default function Resgister() {
     const [ img, setImg ] = useState('images/planet.png')
     const input = 'md:w-full md:h-12 rounded-lg bg-transparent border-2 pl-3 text-lg';
+    const { setActive, textError, setTextError } = useContext(ModalContext);
 
     const { register, handleSubmit } = useForm();
 
@@ -19,10 +24,25 @@ export default function Resgister() {
                         authorization: `Bearer ${token}`
                     }
                 })
-                console.log(res)
+
+                if(res){
+                    document.getElementById('image').value = '';
+                    document.getElementById('id_reference').value = '';
+                    document.getElementById('description').value = '';
+                }
+                
+                console.log('res', res)
 
             } catch(err) {
+                setActive(true)
+                setTextError(err.response.data.errorCode)
+
                 console.log(err.response.data)
+
+                // setTimeout(() => {
+                //     setActive(false)
+                //     Router.push('/login')
+                // }, 2000)
             }
 
     }
@@ -30,6 +50,7 @@ export default function Resgister() {
     return (
         <div className='bg-homebg-dark h-screen'>
             <Header />
+            <Modal text={textError} />
 
             <main className='md:flex md:w-9/12 md:m-auto md:mt-24'>
                 <div className='bg-card-bg md:w-1/3 md:p-6 text-white rounded-l-xl'>
@@ -37,6 +58,7 @@ export default function Resgister() {
                         <h2 className='md:text-2xl'>Register planet</h2>
 
                         <input 
+                            id='image'
                             className={input} 
                             type="text" 
                             placeholder='image' 
@@ -46,11 +68,16 @@ export default function Resgister() {
                             {...register('image')}
                         />
 
-                        <input className={input} type="text" placeholder='id reference' 
+                        <input
+                            id='id_reference' 
+                            className={input} 
+                            type="text" 
+                            placeholder='id reference' 
                             {...register('id_reference')}
                         />
 
                         <textarea 
+                            id='description'
                             required 
                             className='md:w-full md:h-52 rounded-lg bg-transparent border-2 resize-none'
                             placeholder='description'
