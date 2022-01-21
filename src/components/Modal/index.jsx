@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { ModalContext } from '../../contexts/ModalContext';
 
 export function Modal({ text }) {
-    const { active, setActive } = useContext(ModalContext);
+    const { active, setActive, type } = useContext(ModalContext);
 
     function closeModal(e) {
         if (e.target.id == "container") {
@@ -10,27 +10,30 @@ export function Modal({ text }) {
         }
     }
 
+    var color = 'bg-green-1000';
+    if(type === 'Error'){
+        color = 'bg-red-700';
+    }
+
     return (
         active && (
-            <div id='container' className='md:w-full md:h-full fixed bg-special flex flex-col' onClick={closeModal}>
-                
-                <div className='md:mt-40 md:w-2/4 md:mx-auto md:flex md:justify-end'>
-                    <img onClick={() => setActive(false)} className='cursor-pointer' width={30} src="/images/icons/close.png" alt="Wrong" />
+            <div id='container' className='md:w-full md:h-full fixed bg-special flex items-end justify-end' onClick={closeModal}>
+                <div className='md:w-96 md:mb-20 md:mr-10 md:h-16 flex'>
+                    <div className={`md:w-3 md:h-full ${color} md:rounded-l-md bg-green`}>
+                    </div>
+                    <div className='w-full bg-white flex items-center gap-4 pl-3'>
+                        <img width={40} src={`images/icons/${type}.png`} />
+                        <div>
+                            <span>{ type }</span>
+                            <p>
+                                { text }
+                            </p>
+                        </div>
+                    </div>
+                    <div onClick={() => setActive(false)} className='md:rounded-r-md border-l-2 border-gray-100 w-20 hover:bg-gray-100 bg-white flex items-center justify-center text-gray-300 cursor-pointer'>
+                        close
+                    </div>
                 </div>
-
-                <main className='md:w-1/3 md:mx-auto md:mt-28'>
-
-                    <div className='bg-red-600 rounded-t-2xl py-4 flex justify-center'>
-                        <img width={110} src="/images/icons/wrong.png" alt="Wrong" />
-                    </div>
-                    <div className='bg-card-bg text-white flex flex-col items-center gap-8 py-8 rounded-b-2xl'>
-                        <h3 className='font-bold text-4xl'>Ooops!</h3>
-                        <span className='text-xl text-gray-300'>{ text }</span>
-                        <button className='bg-blue-700 rounded-full py-3 px-10 font-medium' onClick={() => setActive(false)}>
-                            Try again
-                        </button>
-                    </div>
-                </main>
             </div>
         )
     )

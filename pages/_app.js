@@ -1,4 +1,5 @@
 import 'tailwindcss/tailwind.css'
+import '../src/components/Modal/style.css';
 import { AuthProvider } from '../src/contexts/AuthContext'
 import { ModalProvider } from '../src/contexts/ModalContext'
 
