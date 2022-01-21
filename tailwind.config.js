@@ -40,6 +40,9 @@ module.exports = {
           'comeco': '#8257E6',
           'meio': '#663A9B',
           'fim': '#451744'
+        },
+        green: {
+          '1000': '#0ed145'
         }
       },
       width: {
@@ -58,7 +61,16 @@ module.exports = {
       },
       padding:{
         50: '12.1rem'
-      }
+      },
+      keyframes: {
+        teste: {
+          '0%': { background: '#FFF' },
+          '100%': { background: '#000' },
+        },
+      },
+      animation: {
+        teste: 'teste 2s infinite',
+      },
     }
   }
 }

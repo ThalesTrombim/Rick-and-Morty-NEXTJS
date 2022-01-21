@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
                 maxAge: 60 * 60 * 24, // 1 day
             })
 
-            // Router.push('/');
+            Router.push('/');
             return token;
 
         } catch(err) {

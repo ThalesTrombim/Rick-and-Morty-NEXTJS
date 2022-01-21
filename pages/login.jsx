@@ -8,10 +8,10 @@ import { ModalContext } from '../src/contexts/ModalContext';
 export default function Login() {
     const { register, handleSubmit } = useForm();
     const { signIn, user } = useContext(AuthContext);
-    const { setActive, textError, setTextError } = useContext(ModalContext);
+    const { setActive, textError, setTextError, type, setType } = useContext(ModalContext);
 
     async function handleSignIn(data) {
-
+            
             const res = await signIn(data);
 
             if(!res.error){
@@ -20,6 +20,7 @@ export default function Login() {
 
             setActive(true)
             console.log(res)
+            setType('Error')
             setTextError(res.error)
     }
 
