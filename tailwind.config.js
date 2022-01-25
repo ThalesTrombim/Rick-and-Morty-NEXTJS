@@ -50,6 +50,7 @@ module.exports = {
       },
       height: {
         'xx': '450px',
+        'xl': '408px',
         '400': '400px',
         '9/11': '86%'
       },

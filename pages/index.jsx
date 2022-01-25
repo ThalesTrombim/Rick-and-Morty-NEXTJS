@@ -26,13 +26,12 @@ export default function Home({list}){
     </main>
       </div>
       <div className="w-full flex">
-        <div id="list-container" className="m-auto md:grid md:grid-cols-4 md:gap-8 md:mt-8">
+        <div id="list-container" className="m-auto md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-8 md:mt-8">
           {list.map( item => (
             <Card character={ item }/>
           ))}
         </div>
       </div>
-      
       
     </div>
   );
