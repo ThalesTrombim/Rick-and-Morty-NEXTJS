@@ -3,7 +3,7 @@ import React from 'react';
 function Header({ position } = undefined ){
     return(
         <div className="">
-            <div className="text-white flex flex-col gap-5 pb-5 md:flex-row md:w-9/12 md:m-auto md:justify-between md:items-center">
+            <div className="text-white flex flex-col gap-5 pb-5 md:flex-row md:w-10/12 md:m-auto md:justify-between md:items-center">
                 <div className=''>
                     <a href="/">
                         <img src="/images/logo2.png" alt="Rick and Morty" className="w-48 m-auto h-16" />

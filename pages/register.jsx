@@ -22,21 +22,21 @@ export default function Register() {
     }
 
     return (
-        <div className='bg-homebg-dark h-screen'>
+        <div className='bg-homebg-dark h-screen px-4'>
             <Header />
             <Modal text={textError}/>
 
-            <div className='md:w-5/6 md:mx-auto md:mt-40 bg-card-bg rounded-xl md:flex'>
+            <div className='md:w-5/6 md:mx-auto md:mt-40 bg-card-bg rounded-xl md:flex px-4'>
 
                 <div className='md:w-1/3 text-center md:rounded-l-xl md:py-10 text-white'>
 
-                    <form className='md:flex md:flex-col md:p-5 md:gap-10' onSubmit={handleSubmit(handleCreateAccount)}>
+                    <form className='flex flex-col md:p-5 gap-10 mt-24' onSubmit={handleSubmit(handleCreateAccount)}>
 
                         <span className='text-xl'>Create account</span>
 
                         <input 
                             {...register('name')}
-                            className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
                             type="text" 
                             placeholder='name'
                             name='name'
@@ -44,7 +44,7 @@ export default function Register() {
 
                         <input 
                             {...register('email')}
-                            className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
                             type="email" 
                             placeholder='email'
                             name='email'
@@ -52,7 +52,7 @@ export default function Register() {
 
                         <input 
                             {...register('password')}
-                            className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
                             type="password" 
                             placeholder='password'
                             name='password'    
@@ -60,7 +60,7 @@ export default function Register() {
 
                         <input 
                             // {...register('password')}
-                            className='md:h-12 md:rounded-full md:pl-4 bg-transparent border-2 border-black' 
+                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
                             type="password" 
                             placeholder='repeat password'
                             name='password'    

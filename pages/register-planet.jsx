@@ -10,7 +10,7 @@ import { Modal } from '../src/components/Modal';
 
 export default function Resgister() {
     const [ img, setImg ] = useState('images/planet.png')
-    const input = 'md:w-full md:h-12 rounded-lg bg-transparent border-2 pl-3 text-lg';
+    const input = 'w-full h-12 rounded-lg bg-transparent border-2 pl-3 text-lg';
     const { setActive, textError, setTextError } = useContext(ModalContext);
 
     const { register, handleSubmit } = useForm();
@@ -48,15 +48,21 @@ export default function Resgister() {
     }
 
     return (
-        <div className='bg-homebg-dark h-screen'>
+        <div className='bg-homebg-dark h-screen p-3'>
             <Header />
             <Modal text={textError} />
 
             <main className='md:flex md:w-9/12 md:m-auto md:mt-24'>
-                <div className='bg-card-bg md:w-1/3 md:p-6 text-white rounded-l-xl'>
-                    <form className='md:flex md:flex-col md:gap-10 items-center' onSubmit={handleSubmit(registerPlanet)}>
-                        <h2 className='md:text-2xl'>Register planet</h2>
+                <div className='bg-card-bg md:w-1/3 md:p-7 text-white md:rounded-l-xl rounded-xl p-3'>
+                    <form className='flex flex-col gap-5 md:gap-10 items-center' onSubmit={handleSubmit(registerPlanet)}>
+                        <h2 className='text-2xl'>Register planet</h2>
 
+                        <div 
+                            style={{backgroundImage: `url(${img})` }}
+                            className='w-full h-44 bg-cover bg-center'
+                        >
+                            
+                        </div>
                         <input 
                             id='image'
                             className={input} 
@@ -79,13 +85,13 @@ export default function Resgister() {
                         <textarea 
                             id='description'
                             required 
-                            className='md:w-full md:h-52 rounded-lg bg-transparent border-2 resize-none'
+                            className='w-full md:h-52 h-40 rounded-lg bg-transparent border-2 resize-none pl-3'
                             placeholder='description'
                             {...register('description')}
                         >
                         </textarea>
 
-                        <button className='md:w-2/3 md:h-12 bg-blue-700 rounded-full' type='submit'>Create</button>
+                        <button className='w-2/3 h-12 bg-blue-700 rounded-full' type='submit'>Create</button>
 
                     </form>
                 </div>
