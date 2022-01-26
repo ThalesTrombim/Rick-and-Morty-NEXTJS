@@ -2,7 +2,7 @@ import Card from '../src/components/Card';
 import { Header } from '../src/components/Header';
 
 export default function Home({ list }){
-  console.log("env",process.env.NEXT_PUBLIC_BACKEND);
+  // console.log("env",process.env.NEXT_PUBLIC_BACKEND);
   return (
     <div id="Container" className="text-white w-screen h-full sm:h-screen bg-homebg-dark overflow-x-hidden">
       <div className="w-screen h-5/6 bg-cover md:bg-center bg-right" 
