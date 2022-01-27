@@ -24,16 +24,14 @@ export default function Login() {
     }
 
     return (
-        <div className='bg-homebg-dark h-screen px-4'>
+        <div className='bg-homebg-dark h-screen flex items-center justify-center'>
             <Modal text={textError} />
 
-            <Header />
-
-            <div className='md:w-5/6 md:mx-auto md:mt-40 bg-card-bg rounded-xl md:flex mt-32'>
+            <div className='md:w-5/6 md:mx-auto bg-card-bg rounded-xl md:flex w-11/12'>
 
                 <div className='md:w-1/3 text-center md:rounded-l-xl md:py-16 text-white p-4'>
 
-                    <form className='md:flex md:flex-col md:p-5 md:gap-10 gap-10 flex flex-col ' onSubmit={handleSubmit(handleSignIn)}>
+                    <form className='md:flex md:flex-col md:p-5 md:gap-10 gap-10 flex flex-col mt-10' onSubmit={handleSubmit(handleSignIn)}>
 
                         <span className='text-xl'>Login</span>
 

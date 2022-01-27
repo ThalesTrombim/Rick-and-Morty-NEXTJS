@@ -48,18 +48,17 @@ export default function Resgister() {
     }
 
     return (
-        <div className='bg-homebg-dark h-screen p-3'>
-            <Header />
+        <div className='bg-homebg-dark h-screen flex items-center justify-center'>
             <Modal text={textError} />
 
-            <main className='md:flex md:w-9/12 md:m-auto md:mt-24'>
+            <main className='md:flex md:w-9/12 md:m-auto'>
                 <div className='bg-card-bg md:w-1/3 md:p-7 text-white md:rounded-l-xl rounded-xl p-3'>
                     <form className='flex flex-col gap-5 md:gap-10 items-center' onSubmit={handleSubmit(registerPlanet)}>
                         <h2 className='text-2xl'>Register planet</h2>
 
                         <div 
                             style={{backgroundImage: `url(${img})` }}
-                            className='w-full h-44 bg-cover bg-center'
+                            className='w-full h-44 bg-cover bg-center md:hidden'
                         >
                             
                         </div>

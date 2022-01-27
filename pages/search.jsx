@@ -77,8 +77,8 @@ export default function Search() {
 
     return (
         <div className={`bg-homebg-dark ${height} text-white`}>
-            <Header />
-            <main className="md:bg-card-bg md:h-5/6 md:m-auto md:mt-10">
+            {/* <Header /> */}
+            <main className="md:bg-card-bg md:h-5/6 md:m-auto ">
                 <div className='md:flex md:h-full'>
                     <form onSubmit={(e) => {
                         e.preventDefault();

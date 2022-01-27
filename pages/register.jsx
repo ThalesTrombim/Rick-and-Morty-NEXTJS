@@ -22,15 +22,14 @@ export default function Register() {
     }
 
     return (
-        <div className='bg-homebg-dark h-screen px-4'>
-            <Header />
+        <div className='bg-homebg-dark h-screen flex items-center justify-center'>
             <Modal text={textError}/>
 
-            <div className='md:w-5/6 md:mx-auto md:mt-40 bg-card-bg rounded-xl md:flex px-4'>
+            <div className='md:w-5/6 md:mx-auto bg-card-bg rounded-xl md:flex w-11/12'>
 
-                <div className='md:w-1/3 text-center md:rounded-l-xl md:py-10 text-white'>
+                <div className='md:w-1/3 text-center md:rounded-l-xl text-white'>
 
-                    <form className='flex flex-col md:p-5 gap-10 mt-24' onSubmit={handleSubmit(handleCreateAccount)}>
+                    <form className='flex flex-col md:p-5 gap-10 mt-10' onSubmit={handleSubmit(handleCreateAccount)}>
 
                         <span className='text-xl'>Create account</span>
 

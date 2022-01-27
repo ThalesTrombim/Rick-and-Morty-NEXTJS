@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Header({ position } = undefined ){
+function Header(){
     return(
-        <div className="">
+        <div className="absolute w-full">
             <div className="text-white flex flex-col gap-5 pb-5 md:flex-row md:w-10/12 md:m-auto md:justify-between md:items-center">
                 <div className=''>
                     <a href="/">
