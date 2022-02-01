@@ -52,7 +52,8 @@ module.exports = {
         'xx': '450px',
         'xl': '408px',
         '400': '400px',
-        '9/11': '86%'
+        '9/11': '86%',
+        'half': '50vh',
       },
       fontFamily: {
         teste: 'Anton',
