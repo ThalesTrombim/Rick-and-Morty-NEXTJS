@@ -59,7 +59,9 @@ module.exports = {
         teste: 'Anton',
       },
       margin:{
-        18: '4.5rem'
+        18: '4.5rem',
+        '22': '6.5rem',
+        'calc': 'calc(33% - 16.5%)'
       },
       padding:{
         50: '12.1rem'

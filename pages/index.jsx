@@ -1,5 +1,4 @@
 import Card from '../src/components/Card';
-import { Header } from '../src/components/Header';
 
 export default function Home({ list }){
   return (
@@ -7,7 +6,7 @@ export default function Home({ list }){
       <div className="w-full h-half bg-cover md:bg-center bg-right "
        style={{backgroundImage: `url('images/background.png')`}}
       >
-        <main className="w-10/12 md:w-2/3 text-center mt-10 pb-10 md:text-left md:mx-auto md:mt-40">
+        <main className="w-10/12 md:w-full text-center mt-10 pb-10 md:text-left md:mx-auto md:mt-40">
           <div className='md:w-1/2 md:mt-28 md:ml-8'>
             <h1 className="font-semibold md:text-5xl text-3xl mb-5">
               Project made with nextjs
@@ -22,7 +21,7 @@ export default function Home({ list }){
           </div>
         </main>
       </div>
-        <div id="list-container" className="md:w-2/3 md:mx-auto px-4 m-md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-5 flex flex-col gap-10 sm:grid sm:grid-cols-2">
+        <div id="list-container" className="md:w-2/3 lg:w-11/12 md:mx-auto  m-md:grid md:grid-cols-3 xl:grid-cols-5 md:gap-5 flex flex-col gap-10 sm:grid sm:grid-cols-2">
           {list.map( item => (
             <Card character={ item }/>
           ))}

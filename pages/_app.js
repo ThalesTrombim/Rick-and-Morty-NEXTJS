@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
       <ModalProvider>
-        <Header position={'absolute'}/>
+        <Header />
         <Component {...pageProps} />
       </ModalProvider>
     </AuthProvider>
