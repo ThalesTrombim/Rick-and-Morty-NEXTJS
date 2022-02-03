@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Header } from '../src/components/Header';
 import { api } from '../src/services/api';
 import { parseCookies } from 'nookies';
 import { ModalContext } from '../src/contexts/ModalContext';
@@ -51,7 +50,7 @@ export default function Resgister() {
         <div className='bg-homebg-dark h-screen flex items-center justify-center'>
             <Modal text={textError} />
 
-            <main className='md:flex md:w-9/12 md:m-auto'>
+            <main className='w-11/12 mt-20 md:flex md:w-11/12 md:m-auto'>
                 <div className='bg-card-bg md:w-1/3 md:p-7 text-white md:rounded-l-xl rounded-xl p-3'>
                     <form className='flex flex-col gap-5 md:gap-10 items-center' onSubmit={handleSubmit(registerPlanet)}>
                         <h2 className='text-2xl'>Register planet</h2>

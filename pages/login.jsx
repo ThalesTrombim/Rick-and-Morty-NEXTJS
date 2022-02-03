@@ -27,7 +27,7 @@ export default function Login() {
         <div className='bg-homebg-dark h-screen flex items-center justify-center'>
             <Modal text={textError} />
 
-            <div className='md:w-5/6 md:mx-auto bg-card-bg rounded-xl md:flex w-11/12'>
+            <div className='md:w-11/12 md:mx-auto bg-card-bg rounded-xl md:flex w-11/12'>
 
                 <div className='md:w-1/3 text-center md:rounded-l-xl md:py-16 text-white p-4'>
 
