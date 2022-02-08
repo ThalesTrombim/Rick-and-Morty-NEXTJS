@@ -2,30 +2,105 @@ import Card from '../src/components/Card';
 
 export default function Home({ list }){
   return (
-    <div id="Container" className="text-white w-full h-auto bg-homebg-dark flex flex-col">
-      <div className="w-full h-half bg-cover md:bg-center bg-right "
-       style={{backgroundImage: `url('images/background.png')`}}
+    <div id="Container" className="
+      text-white 
+      bg-gradient-to-r 
+      from-main-background-left 
+      to-main-background-right 
+      lg:flex
+      lg:flex-col
+      lg:w-full
+      lg:h-auto
+    ">
+      <div className=""
+      //  style={{backgroundImage: `url('images/background.png')`}}
       >
-        <main className="w-10/12 md:w-full text-center mt-40 mx-auto pb-10 md:text-left md:mx-auto md:mt-40">
-          <div className='md:w-1/2 md:mt-28 md:ml-8'>
-            <h1 className="font-semibold md:text-5xl text-3xl mb-5">
-              Project made with nextjs
+        <main className="
+          lg:mt-28
+          lg:flex
+          lg:items-center
+          lg:gap-3
+          lg:px-3
+          xl:w-2/3
+          xl:m-auto
+        ">
+          <div className='lg:flex lg:flex-col lg:gap-3 xl:gap-6'>
+            <h1 className="text-6xl">
+              Rick and NextJs
             </h1>
-            <p className="md:text-2xl text-xl">
+            <p className="lg:text-3xl lg:font-light">
               Developed using the main
               features that NextJS has.
               Here you find all characters
               from the Rick and Morty series and some information
               about them too.
             </p>
+            <div className='lg:flex lg:w-2/3 lg:justify-between xl:w-1/2'>
+              <button className='
+                border-gray-400
+                lg:border-2
+                lg:rounded-xl
+                lg:w-32
+                lg:h-14
+                lg:flex
+                lg:items-center
+                lg:justify-center
+                bg-blue-button-primary
+                hover:bg-transparent
+              '>
+                <a href="/login">
+                  login
+                </a>
+              </button>
+              <button className='
+                border-gray-400
+                lg:border-2
+                lg:rounded-xl
+                lg:w-32
+                lg:h-14
+                lg:flex
+                lg:items-center
+                lg:justify-center
+                bg-transparent
+                hover:bg-blue-button-primary
+              '>
+                <a href="/search">
+                  search
+                </a>
+              </button>
+            </div>
+          </div>
+          <div className='xl:-mr-60'>
+            <img src="/images/backgrounds/rick-and-morty-portal.png" alt="" />
           </div>
         </main>
       </div>
-        <div id="list-container" className="mx-auto w-11/12 md:w-2/3 lg:w-11/12 md:mx-auto  m-md:grid md:grid-cols-3 xl:grid-cols-5 md:gap-5 flex flex-col gap-10 sm:grid sm:grid-cols-2">
+      <div 
+        className='
+          lg:bg-no-repeat
+          lg:bg-cover
+        '
+        style={{backgroundImage: `url('images/backgrounds/main-bg.png')`}}
+      >
+        <div id="list-container" className="
+          lg:mt-12
+          lg:grid
+          lg:grid-cols-3
+          xl:grid-cols-5
+          xl:w-2/3
+          xl:m-auto
+          " 
+        >
           {list.map( item => (
             <Card character={ item }/>
           ))}
         </div>
+        <div className='lg:mt-40 xl:w-full xl:mb-6 xl:font-semibold xl:text-2xl text-center'>
+          Thales Trombim
+        </div>
+
+      </div>
+
     </div>
   );
 }

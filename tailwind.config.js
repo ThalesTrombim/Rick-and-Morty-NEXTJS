@@ -31,19 +31,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'purple': '#6c1c76',
-        'homebg-light': '#b4e0eb',
-        'homebg-dark': '#111828',
-        'card-bg': '#202938',
-        'special': 'rgba(0, 0, 0, .4)',
-        blue: {
-          'comeco': '#8257E6',
-          'meio': '#663A9B',
-          'fim': '#451744'
-        },
+        'main-background-left': '#84284D',
+        'main-background-right': '#592B73',
         green: {
           '1000': '#0ed145'
-        }
+        },
+        blue: {
+          'button-primary': '#B44BF0',
+          'button-secondary-left': '#0228A6',
+          'button-secondary-right': '#00849E',
+        },
+        'button-secondary-left': '#0228A6',
+        'button-secondary-right': '#00849E',
       },
       width: {
         '68': '17rem',
@@ -65,15 +64,6 @@ module.exports = {
       },
       padding:{
         50: '12.1rem'
-      },
-      keyframes: {
-        teste: {
-          '0%': { background: '#FFF' },
-          '100%': { background: '#000' },
-        },
-      },
-      animation: {
-        teste: 'teste 2s infinite',
       },
     }
   }
