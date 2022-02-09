@@ -4,7 +4,7 @@ export default function Home({ list }){
   return (
     <div id="Container" className="
       text-white 
-      bg-gradient-to-r 
+      bg-gradient-to-r
       from-main-background-left 
       to-main-background-right 
       lg:flex
@@ -16,6 +16,7 @@ export default function Home({ list }){
       //  style={{backgroundImage: `url('images/background.png')`}}
       >
         <main className="
+          pt-16
           lg:mt-28
           lg:flex
           lg:items-center
@@ -24,7 +25,7 @@ export default function Home({ list }){
           xl:w-2/3
           xl:m-auto
         ">
-          <div className='lg:flex lg:flex-col lg:gap-3 xl:gap-6'>
+          <div className='flex text-center flex-col gap-6 py-6 lg:text-left lg:flex lg:flex-col lg:gap-3 xl:gap-6'>
             <h1 className="text-6xl">
               Rick and NextJs
             </h1>
@@ -35,12 +36,13 @@ export default function Home({ list }){
               from the Rick and Morty series and some information
               about them too.
             </p>
-            <div className='lg:flex lg:w-2/3 lg:justify-between xl:w-1/2'>
+            <div className='flex justify-around lg:flex lg:w-2/3 lg:justify-between xl:w-1/2'>
               <button className='
+                w-32
+                h-12
+                rounded-xl
                 border-gray-400
                 lg:border-2
-                lg:rounded-xl
-                lg:w-32
                 lg:h-14
                 lg:flex
                 lg:items-center
@@ -54,9 +56,10 @@ export default function Home({ list }){
               </button>
               <button className='
                 border-gray-400
-                lg:border-2
-                lg:rounded-xl
-                lg:w-32
+                w-32
+                h-12
+                border-2
+                rounded-xl
                 lg:h-14
                 lg:flex
                 lg:items-center
@@ -70,7 +73,7 @@ export default function Home({ list }){
               </button>
             </div>
           </div>
-          <div className='xl:-mr-60'>
+          <div className='hidden lg:flex xl:-mr-60'>
             <img src="/images/backgrounds/rick-and-morty-portal.png" alt="" />
           </div>
         </main>
