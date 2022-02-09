@@ -43,6 +43,9 @@ module.exports = {
         },
         'button-secondary-left': '#0228A6',
         'button-secondary-right': '#00849E',
+        'button-card': '#631D76',
+        'card-left': '#8A5F9D',
+        'card-right': '#200B2A'
       },
       width: {
         '68': '17rem',

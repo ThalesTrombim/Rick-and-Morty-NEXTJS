@@ -17,6 +17,7 @@ export default function Home({ list }){
       >
         <main className="
           pt-16
+          lg:pt-0
           lg:mt-28
           lg:flex
           lg:items-center
@@ -89,17 +90,22 @@ export default function Home({ list }){
           lg:mt-12
           lg:grid
           lg:grid-cols-3
+          lg:gap-6
+          lg:px-6
           xl:grid-cols-5
           xl:w-2/3
-          xl:m-auto
+          lg:m-auto
           " 
         >
           {list.map( item => (
             <Card character={ item }/>
           ))}
         </div>
-        <div className='lg:mt-40 xl:w-full xl:mb-6 xl:font-semibold xl:text-2xl text-center'>
-          Thales Trombim
+        <div className='lg:mt-24 lg:mb-3 xl:w-full xl:mb-6 xl:font-semibold xl:text-2xl'>
+          <a href="https://github.com/ThalesTrombim" target="_blank" className='flex justify-center gap-3'>
+            <img width={25} src="/images/assets/github.png" alt="" />
+            Thales Trombim
+          </a>
         </div>
 
       </div>
