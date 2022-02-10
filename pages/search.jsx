@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Search() {
     const [character, setCharacter ] = useState([]);
     const [ height, setHeight ] = useState('h-screen');
+    const [ marginImg, setMarginImg ] = useState('mt-32');
 
     const [width, setWidth] = useState(0);
         useEffect(() => {
@@ -55,6 +56,7 @@ export default function Search() {
             var characters = atualizado;
             characters.shift();
             setHeight('h-full');
+            setMarginImg('-mt-80')
             setCharacter(characters);
 
             searchInput.value = '';
@@ -63,72 +65,76 @@ export default function Search() {
     }
 
     return (
-        // <div className={`w-full bg-homebg-dark ${height} md:flex md:justify-center`}>
-        //     <div className="flex w-full lg:w-full md:pt-32 md:flex-col bg-blue-400 gap-10 xl:w-2/3">
-        //         <form onSubmit={(e) => {
-        //                 e.preventDefault();
-        //                 findCharacter();
-        //             }}
-        //             className='flex items-center gap-2 justify-center'
-        //         >
-        //             <img width='25' src="images/icons/lupa.png" alt="search" className='-mr-12 z-10'/>
-        //             <input id="search" className="lg:w-2/4 lg:h-12 rounded-lg pl-12 text-xl xl:w-1/3" type="text" />
-        //             <button className="bg-blue-600 w-20 h-10 rounded-lg text-white font-bold -ml-24 focus:border-none">
-        //                 Search 
-        //             </button>
-        //         </form>
-        //         {
-        //             character != '' ? (
-        //                 <div className='md:w-full md:flex lg:grid lg:grid-cols-3 lg:gap-10 lg:px-10 xl:grid-cols-5'>
-        //                     {character.map( item => ( 
-        //                         <Card character={ item } />
-        //                     ))}
-        //                 </div>
-        //             ) : (
-        //                 <div className='text-white flex flex-col items-center h-full pt-28 gap-5'>
-        //                     <h3 className='font-semibold text-8xl'>
-        //                         Find a character!
-        //                     </h3>
-        //                     <p className='font-semibold text-2xl'>
-        //                         type a character name
-        //                     </p>
-        //                 </div>
-        //             )
-        //         }
-        //     </div>
-        // </div>
-        <div className={`w-full bg-homebg-dark ${height} pt-40`}>
-            <div className="">
+        <div className={`
+            w-full 
+            bg-gradient-to-r
+            from-main-background-left 
+            to-main-background-right  
+            ${height} 
+            h-full
+            pt-16
+            lg:pt-40
+            text-white
+            `}
+            >
+            <div className="flex flex-col items-center">
                 <form onSubmit={(e) => {
                         e.preventDefault();
                         findCharacter();
                     }}
-                    className='flex items-center justify-center'
+                    className='w-full flex flex-col gap-6'
                 >
-                    <img width='25' src="images/icons/lupa.png" alt="search" className='-mr-12 z-10'/>
-                    <input id="search" className="w-11/12 lg:w-2/4 h-12 rounded-lg pl-12 text-xl xl:w-1/3" type="text" />
-                    <button className="bg-blue-600 w-20 h-10 rounded-lg text-white font-bold -ml-24 focus:border-none">
-                        Search 
-                    </button>
+                    <div className='text-white flex flex-col gap-3 items-center'>
+                        <h2 className='font-semibold text-3xl lg:text-6xl '>
+                            Find a character
+                        </h2>
+                        <p className='text-xl lg:text-3xl'>type any character</p>
+                    </div>
+                    <div className='w-full flex justify-center items-center px-2 pb-6 xl:w-2/3 xl:m-auto'>
+                        <img width='30' src="images/assets/lupa.png" alt="search" className='-mr-10 z-10'/>
+                        <input id="search" className="text-black w-full lg:w-1/2 h-16 rounded-xl text-3xl pl-12 focus:border-transparent" type="text" />
+                        <button className="bg-blue-button-primary w-32 h-12 rounded-xl -ml-36">
+                            Search 
+                        </button>
+                    </div>
                 </form>
-                {
-                    character != '' ? (
-                        <div className='mx-auto w-11/12 flex flex-col items-center md:w-full xl:w-2/3 md:flex lg:grid lg:grid-cols-3 lg:gap-10 lg:px-10 xl:grid-cols-5'>
-                            {character.map( item => ( 
-                                <Card character={ item } />
-                            ))}
-                        </div>
-                    ) : (
-                        <div className='text-white flex flex-col items-center h-full pt-28 gap-5'>
-                            <h3 className='font-semibold text-4xl md:text-8xl'>
-                                Find a character!
-                            </h3>
-                            <p className='font-semibold text-2xl'>
-                                type a character name
-                            </p>
-                        </div>
-                    )
-                }
+                <div className='
+                    w-full
+                    bg-gradient-to-r
+                    from-main-background-left 
+                    to-main-background-right 
+                    flex
+                    justify-center
+                '>
+                    {
+                        character != '' ? (
+                            <div className='
+                                w-full
+                                grid
+                                grid-cols-1
+                                gap-6
+                                px-6 
+                                z-10
+                                lg:grid
+                                lg:grid-cols-3 
+                                lg:gap-6 
+                                xl:w-2/3
+                                xl:grid-cols-5 
+                            '>
+                                {character.map( item => ( 
+                                    <Card character={ item } />
+                                ))}
+
+                            </div>
+                        ) : (
+                            <div className=''>
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+            <div className={marginImg}>
+                <img className='mt-auto ml-auto' src="/images/backgrounds/rick-portal.png" alt="" />
             </div>
         </div>
     );
