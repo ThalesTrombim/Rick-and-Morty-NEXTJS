@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Search() {
     const [character, setCharacter ] = useState([]);
     const [ height, setHeight ] = useState('h-screen');
-    const [ marginImg, setMarginImg ] = useState('mt-32');
+    const [ marginImg, setMarginImg ] = useState('mt-28');
 
     const [width, setWidth] = useState(0);
         useEffect(() => {
