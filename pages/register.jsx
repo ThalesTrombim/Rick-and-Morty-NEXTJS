@@ -22,20 +22,42 @@ export default function Register() {
     }
 
     return (
-        <div className='bg-homebg-dark h-screen flex items-center justify-center'>
+        <div className='
+            bg-gradient-to-r
+            from-main-background-left 
+            to-main-background-right 
+            h-screen
+            flex
+            items-center
+            justify-center
+        '>
             <Modal text={textError}/>
 
-            <div className='md:w-5/6 md:mx-auto bg-card-bg rounded-xl md:flex w-11/12'>
+                <div className='lg:flex w-11/12'>
+                    <div className='w-45% rounded-l-xl'
+                        style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
+                    >
+                    </div>
 
-                <div className='md:w-1/3 text-center md:rounded-l-xl text-white'>
+                    <form className='
+                            bg-white
+                            rounded-xl
+                            lg:rounded-l-none
+                            lg:rounded-r-xl
+                            flex
+                            flex-col
+                            items-center
+                            lg:w-55%
+                            gap-12
+                            p-12
+                        ' 
+                    onSubmit={handleSubmit(handleCreateAccount)}>
 
-                    <form className='flex flex-col md:p-5 gap-10 mt-10' onSubmit={handleSubmit(handleCreateAccount)}>
-
-                        <span className='text-xl'>Create account</span>
+                        <span className='text-blue-button-primary font-semibold text-4xl'>Register</span>
 
                         <input 
                             {...register('name')}
-                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
+                            className=' w-5/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' 
                             type="text" 
                             placeholder='name'
                             name='name'
@@ -43,7 +65,7 @@ export default function Register() {
 
                         <input 
                             {...register('email')}
-                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
+                            className='w-5/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' 
                             type="email" 
                             placeholder='email'
                             name='email'
@@ -51,35 +73,30 @@ export default function Register() {
 
                         <input 
                             {...register('password')}
-                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
+                            className='w-5/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' 
                             type="password" 
                             placeholder='password'
                             name='password'    
                         />
 
-                        <input 
-                            // {...register('password')}
-                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
-                            type="password" 
-                            placeholder='repeat password'
-                            name='password'    
-                        />
+                        <div className=''>
 
-                        <div className='md:flex md:justify-center font-semibold'>
-
-                            <button className='bg-blue-700 rounded-full py-3 px-20' type='submit'>
+                            <button className='
+                                    bg-gradient-to-r
+                                    from-blue-button-secondary-left
+                                    to-blue-button-secondary-right
+                                    rounded-xl
+                                    h-12
+                                    w-36
+                                    text-white
+                                    text-lg
+                                ' 
+                            type='submit'>
                                 create account
                             </button>
                         </div>
                     </form>
                 </div>
-                <div 
-                    className='bg-red-500 md:w-2/3 md:rounded-r-xl bg-cover'
-                    style={{backgroundImage: `url('images/login.png')`}}
-                    >
-                </div>
-            </div>
-
         </div>
     )
 }

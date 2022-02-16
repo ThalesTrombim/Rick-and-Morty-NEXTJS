@@ -28,15 +28,14 @@ export default function Login() {
             from-main-background-left 
             to-main-background-right 
             h-screen
-            lg:flex
-            lg:items-center
-            lg:justify-center
+            flex
+            items-center
+            justify-center
             '>
             <Modal text={textError} />
 
                 <div className='lg:flex lg:w-11/12'>
-                    <div 
-                        className='bg-[center_bottom_1rem] w-45% rounded-l-xl'
+                    <div className='w-45% rounded-l-xl'
                         style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                         >
                             { user && (
@@ -49,15 +48,17 @@ export default function Login() {
                             flex 
                             flex-col 
                             items-center 
-                            w-55%
+                            lg:w-55%
                             justify-center
                             py-6
                             gap-8
-                            rounded-r-xl
+                            rounded-xl
+                            lg:rounded-r-xl
+                            lg:rounded-l-none
                         ' 
                         onSubmit={handleSubmit(handleSignIn)}>
 
-                        <span className='text-4xl font-semibold focus-within:text-blue-button-primary'>Login</span>
+                        <span className='text-4xl font-semibold text-blue-button-primary'>Login</span>
 
                         <input 
                             {...register('email')}
@@ -75,22 +76,23 @@ export default function Login() {
                             name='password'  
                         />
 
-                        <div className='flex flex-col items-center py-6 gap-6'>
+                        <div className='flex flex-col items-center py-6 gap-6 px-3'>
                             <button className='
-                                bg-gradient-to-r
-                                from-blue-button-secondary-left
-                                to-blue-button-secondary-right
-                                rounded-xl
-                                h-12
-                                w-36
-                                text-white
-                                text-lg
-                                ' type='submit'>
+                                    bg-gradient-to-r
+                                    from-blue-button-secondary-left
+                                    to-blue-button-secondary-right
+                                    rounded-xl
+                                    h-12
+                                    w-36
+                                    text-white
+                                    text-lg
+                                ' 
+                                type='submit'>
                                 login
                             </button>
 
                             <p>
-                                don't you have an account? 
+                                don't you have an account?
                                 <a className='text-blue-button-primary' href="/register"> Create an account</a>
                             </p>
                         </div>
