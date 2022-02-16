@@ -1,4 +1,3 @@
-import { Header } from '../src/components/Header';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
@@ -24,20 +23,45 @@ export default function Login() {
     }
 
     return (
-        <div className='bg-homebg-dark h-screen flex items-center justify-center'>
+        <div className='
+            bg-gradient-to-r
+            from-main-background-left 
+            to-main-background-right 
+            h-screen
+            lg:flex
+            lg:items-center
+            lg:justify-center
+            '>
             <Modal text={textError} />
 
-            <div className='md:w-11/12 md:mx-auto bg-card-bg rounded-xl md:flex w-11/12'>
+                <div className='lg:flex lg:w-11/12'>
+                    <div 
+                        className='bg-[center_bottom_1rem] w-45% rounded-l-xl'
+                        style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
+                        >
+                            { user && (
+                                <p>{user}</p>
+                            )}
+                    </div>
 
-                <div className='md:w-1/3 text-center md:rounded-l-xl md:py-16 text-white p-4'>
+                    <form className='
+                            bg-white 
+                            flex 
+                            flex-col 
+                            items-center 
+                            w-55%
+                            justify-center
+                            py-6
+                            gap-8
+                            rounded-r-xl
+                        ' 
+                        onSubmit={handleSubmit(handleSignIn)}>
 
-                    <form className='md:flex md:flex-col md:p-5 md:gap-10 gap-10 flex flex-col mt-10' onSubmit={handleSubmit(handleSignIn)}>
-
-                        <span className='text-xl'>Login</span>
+                        <span className='text-4xl font-semibold focus-within:text-blue-button-primary'>Login</span>
 
                         <input 
                             {...register('email')}
-                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
+                            className='w-5/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' 
                             type="email" 
                             placeholder='email'
                             name='email'
@@ -45,33 +69,34 @@ export default function Login() {
 
                         <input 
                             {...register('password')}
-                            className='h-12 rounded-full pl-4 bg-transparent border-2 border-black' 
+                            className='mt-6 w-5/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' 
                             type="password" 
                             placeholder='password'
                             name='password'  
                         />
 
-                        <div className='md:flex md:justify-between font-semibold flex justify-between'>
-                            <a className='bg-white text-black rounded-full py-3 px-4 cursor-pointer' type='submit'>
-                                create account
-                            </a>
-
-                            <button className='bg-blue-700 rounded-full py-3 px-10' type='submit'>
+                        <div className='flex flex-col items-center py-6 gap-6'>
+                            <button className='
+                                bg-gradient-to-r
+                                from-blue-button-secondary-left
+                                to-blue-button-secondary-right
+                                rounded-xl
+                                h-12
+                                w-36
+                                text-white
+                                text-lg
+                                ' type='submit'>
                                 login
                             </button>
+
+                            <p>
+                                don't you have an account? 
+                                <a className='text-blue-button-primary' href="/register"> Create an account</a>
+                            </p>
                         </div>
                     </form>
                 </div>
-                <div 
-                    className='bg-red-500 md:w-2/3 md:rounded-r-xl bg-cover'
-                    style={{backgroundImage: `url('images/login.png')`}}
-                    >
-                        { user && (
-                            <p>{user}</p>
-                        )}
-                </div>
-            </div>
-
+                
         </div>
     )
 }
