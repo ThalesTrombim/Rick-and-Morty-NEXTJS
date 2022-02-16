@@ -37,7 +37,7 @@ export default function Login() {
                 <div className='lg:flex lg:w-11/12'>
                     <div 
                         className='bg-[center_bottom_1rem] w-45% rounded-l-xl'
-                        style={{backgroundPosition: '-3000px -2000px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
+                        style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                         >
                             { user && (
                                 <p>{user}</p>
@@ -75,7 +75,7 @@ export default function Login() {
                             name='password'  
                         />
 
-                        <div className='bg-red-300 flex flex-col items-center py-6 gap-6'>
+                        <div className='flex flex-col items-center py-6 gap-6'>
                             <button className='
                                 bg-gradient-to-r
                                 from-blue-button-secondary-left
