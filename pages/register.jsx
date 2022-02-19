@@ -15,10 +15,10 @@ export default function Register() {
         if(!res.error){
             return
         }
-        console.log(res)
+        console.log(res.error)
 
         setActive(true)
-        setError({ type: 'Error', text: res.error });
+        setError({ type: 'Error', msg: res.error });
     }
 
     return (
