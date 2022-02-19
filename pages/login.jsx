@@ -7,7 +7,7 @@ import { ModalContext } from '../src/contexts/ModalContext';
 export default function Login() {
     const { register, handleSubmit } = useForm();
     const { signIn, user } = useContext(AuthContext);
-    const { setActive, textError, setTextError, type, setType } = useContext(ModalContext);
+    const { setActive, error, setError } = useContext(ModalContext);
 
     async function handleSignIn(data) {
             const res = await signIn(data);
@@ -15,14 +15,13 @@ export default function Login() {
             if(!res.error){
                 return
             } 
-
             setActive(true)
-            console.log(res)
-            setType('Error')
-            setTextError(res.error)
+            setError({ type:'Error', msg: res.error})
+            
     }
 
     return (
+
         <div className='
             bg-gradient-to-r
             from-main-background-left 
@@ -32,15 +31,15 @@ export default function Login() {
             items-center
             justify-center
             '>
-            <Modal text={textError} />
+            <Modal text={error} />
 
                 <div className='lg:flex lg:w-11/12'>
                     <div className='w-45% rounded-l-xl'
                         style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                         >
-                            { user && (
+                            {/* { user && (
                                 <p>{user}</p>
-                            )}
+                            )} */}
                     </div>
 
                     <form className='

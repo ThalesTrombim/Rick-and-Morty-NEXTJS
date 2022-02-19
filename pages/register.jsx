@@ -1,4 +1,3 @@
-import { Header } from '../src/components/Header';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
@@ -8,7 +7,7 @@ import { Modal } from '../src/components/Modal';
 export default function Register() {
     const { register, handleSubmit } = useForm();
     const { createAccount } = useContext(AuthContext);
-    const { setActive, textError, setTextError } = useContext(ModalContext);
+    const { setActive, error, setError } = useContext(ModalContext);
 
     async function handleCreateAccount(data) {
         const res = await createAccount(data);
@@ -16,9 +15,10 @@ export default function Register() {
         if(!res.error){
             return
         }
+        console.log(res)
 
         setActive(true)
-        setTextError(res.error);
+        setError({ type: 'Error', text: res.error });
     }
 
     return (
@@ -31,7 +31,7 @@ export default function Register() {
             items-center
             justify-center
         '>
-            <Modal text={textError}/>
+            <Modal text={ error }/>
 
                 <div className='lg:flex w-11/12'>
                     <div className='w-45% rounded-l-xl'

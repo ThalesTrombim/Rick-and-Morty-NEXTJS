@@ -45,7 +45,8 @@ module.exports = {
         'button-secondary-right': '#00849E',
         'button-card': '#631D76',
         'card-left': '#8A5F9D',
-        'card-right': '#200B2A'
+        'card-right': '#200B2A',
+        'special': 'rgba(0, 0, 0, .4)'
       },
       width: {
         '68': '17rem',
