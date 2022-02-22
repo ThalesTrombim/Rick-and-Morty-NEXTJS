@@ -33,9 +33,9 @@ export default function Register() {
         '>
             <Modal text={ error }/>
 
-                <div className='lg:flex w-11/12'>
+                <div className='lg:flex w-11/12 shadow-xl'>
                     <div className='w-45% rounded-l-xl'
-                        style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
+                        style={{backgroundSize: 'contain', backgroundPosition: 'center', backgroundAttachment: 'fixed', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                     >
                     </div>
 
@@ -48,35 +48,36 @@ export default function Register() {
                             flex-col
                             items-center
                             lg:w-55%
-                            gap-12
-                            p-12
+                            gap-6
+                            p-6
+                            shadow-xl
                         ' 
                     onSubmit={handleSubmit(handleCreateAccount)}>
 
-                        <span className='text-blue-button-primary font-semibold text-4xl'>Register</span>
+                        <span className='text-blue-button-primary font-semibold text-3xl'>Create character description</span>
+
+                        <div>
+                            <img src="" alt="" />
+                            <p>Morty Sanchez</p>
+                        </div>
+
+                        <select name="" id="">
+                            <option value="">Character Ref:</option>
+                        </select>
 
                         <input 
                             {...register('name')}
                             className=' w-5/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' 
                             type="text" 
-                            placeholder='name'
-                            name='name'
+                            placeholder='Image URL:'
+                            name='image_url'
                         />
 
-                        <input 
-                            {...register('email')}
-                            className='w-5/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' 
-                            type="email" 
-                            placeholder='email'
-                            name='email'
-                        />
-
-                        <input 
-                            {...register('password')}
-                            className='w-5/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' 
-                            type="password" 
-                            placeholder='password'
-                            name='password'    
+                        <textarea 
+                            name="description" 
+                            placeholder='Description:'
+                            id="" 
+                            className='border-2 rounded-lg w-5/6 resize-none h-40'
                         />
 
                         <div className=''>
@@ -92,7 +93,7 @@ export default function Register() {
                                     text-lg
                                 ' 
                             type='submit'>
-                                create account
+                                create
                             </button>
                         </div>
                     </form>

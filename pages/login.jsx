@@ -33,7 +33,7 @@ export default function Login() {
             '>
             <Modal text={error} />
 
-                <div className='lg:flex lg:w-11/12'>
+                <div className='lg:flex lg:w-11/12 xl:w-55% shadow-xl'>
                     <div className='w-45% rounded-l-xl'
                         style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                         >
@@ -54,6 +54,8 @@ export default function Login() {
                             rounded-xl
                             lg:rounded-r-xl
                             lg:rounded-l-none
+                            xl:py-24
+                            shadow-xl
                         ' 
                         onSubmit={handleSubmit(handleSignIn)}>
 

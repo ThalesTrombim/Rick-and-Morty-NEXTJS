@@ -33,9 +33,9 @@ export default function Register() {
         '>
             <Modal text={ error }/>
 
-                <div className='lg:flex w-11/12'>
+                <div className='lg:flex w-11/12 xl:w-55% shadow-xl'>
                     <div className='w-45% rounded-l-xl'
-                        style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
+                        style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -140px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                     >
                     </div>
 
@@ -50,6 +50,8 @@ export default function Register() {
                             lg:w-55%
                             gap-12
                             p-12
+                            xl:py-24
+                            shadow-xl
                         ' 
                     onSubmit={handleSubmit(handleCreateAccount)}>
 
@@ -79,7 +81,7 @@ export default function Register() {
                             name='password'    
                         />
 
-                        <div className=''>
+                        <div className='flex flex-col items-center gap-6'>
 
                             <button className='
                                     bg-gradient-to-r
@@ -94,6 +96,11 @@ export default function Register() {
                             type='submit'>
                                 create account
                             </button>
+
+                            <p>
+                                You already have an account?
+                                <a className='text-blue-button-primary' href="/login"> login</a>
+                            </p>
                         </div>
                     </form>
                 </div>
