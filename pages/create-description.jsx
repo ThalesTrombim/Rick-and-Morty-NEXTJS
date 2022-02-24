@@ -12,9 +12,7 @@ export default function Register({ count }) {
     const [ page, setPage ] = useState(1)
     const [ list, setList ] = useState([]);
     const [ characterSelected, setCharacterSelected ] = useState({})
-
-    console.log(list)
-    console.log(characterSelected)
+    const [ character, setCharacter ] = useState({ name: 'Pickle Rick', image: 'https://rickandmortyapi.com/api/character/avatar/265.jpeg'})
 
     useEffect(async () => {
         const characters = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
@@ -24,7 +22,24 @@ export default function Register({ count }) {
         setList(charactersList)
 
     }, [page])
+    useEffect(async () => {
+        const char = await fetch(`https://rickandmortyapi.com/api/character/${characterSelected}`)
+        const completeChar = await char.json();
+        setCharacter(completeChar)
+    }, [characterSelected])
+    
 
+    async function handleCreateDesc(data) {
+        const res = await createAccount(data);
+
+        if(!res.error){
+            return
+        }
+        console.log(res.error)
+
+        setActive(true)
+        setError({ type: 'Error', msg: res.error });
+    }
 
     return (
         <div className='
@@ -57,13 +72,14 @@ export default function Register({ count }) {
                             p-6
                             shadow-xl
                         ' 
+                        onSubmit={handleSubmit(handleCreateDesc)}
                     >
 
                         <span className='text-blue-button-primary font-semibold text-3xl'>Create character description</span>
 
                         <div className='flex text-3xl font-semibold items-center gap-6'>
-                            <img width='100' className='rounded-md' src="/images/229.jpeg" alt="" />
-                            <p>Morty Sanchez</p>
+                            <img width='100' className='rounded-md' src={character.image} alt="" />
+                            <p>{character.name}</p>
                         </div>
 
                         <div className='flex justify-between w-5/6'>
