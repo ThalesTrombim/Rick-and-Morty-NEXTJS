@@ -1,4 +1,3 @@
-import { Header } from '../src/components/Header';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
@@ -8,7 +7,7 @@ import { Modal } from '../src/components/Modal';
 export default function Register() {
     const { register, handleSubmit } = useForm();
     const { createAccount } = useContext(AuthContext);
-    const { setActive, textError, setTextError } = useContext(ModalContext);
+    const { setActive, error, setError } = useContext(ModalContext);
 
     async function handleCreateAccount(data) {
         const res = await createAccount(data);
@@ -16,9 +15,10 @@ export default function Register() {
         if(!res.error){
             return
         }
+        console.log(res.error)
 
         setActive(true)
-        setTextError(res.error);
+        setError({ type: 'Error', msg: res.error });
     }
 
     return (
@@ -31,11 +31,11 @@ export default function Register() {
             items-center
             justify-center
         '>
-            <Modal text={textError}/>
+            <Modal text={ error }/>
 
-                <div className='lg:flex w-11/12'>
+                <div className='lg:flex w-11/12 xl:w-55% shadow-xl'>
                     <div className='w-45% rounded-l-xl'
-                        style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
+                        style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -140px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                     >
                     </div>
 
@@ -50,6 +50,8 @@ export default function Register() {
                             lg:w-55%
                             gap-12
                             p-12
+                            xl:py-24
+                            shadow-xl
                         ' 
                     onSubmit={handleSubmit(handleCreateAccount)}>
 
@@ -79,7 +81,7 @@ export default function Register() {
                             name='password'    
                         />
 
-                        <div className=''>
+                        <div className='flex flex-col items-center gap-6'>
 
                             <button className='
                                     bg-gradient-to-r
@@ -94,6 +96,11 @@ export default function Register() {
                             type='submit'>
                                 create account
                             </button>
+
+                            <p>
+                                You already have an account?
+                                <a className='text-blue-button-primary' href="/login"> login</a>
+                            </p>
                         </div>
                     </form>
                 </div>
