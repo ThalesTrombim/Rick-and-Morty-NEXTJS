@@ -3,23 +3,28 @@ import { useContext } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
 import { ModalContext } from '../src/contexts/ModalContext';
 import { Modal } from '../src/components/Modal';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function Register() {
+export default function Register({ count }) {
     const { register, handleSubmit } = useForm();
-    const { createAccount } = useContext(AuthContext);
     const { setActive, error, setError } = useContext(ModalContext);
+    const [ page, setPage ] = useState(1)
+    const [ list, setList ] = useState([]);
+    const [ characterSelected, setCharacterSelected ] = useState({})
 
-    async function handleCreateAccount(data) {
-        const res = await createAccount(data);
+    console.log(list)
+    console.log(characterSelected)
 
-        if(!res.error){
-            return
-        }
-        console.log(res.error)
+    useEffect(async () => {
+        const characters = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+        const completeList = await characters.json();
+        const charactersList = completeList.results
 
-        setActive(true)
-        setError({ type: 'Error', msg: res.error });
-    }
+        setList(charactersList)
+
+    }, [page])
+
 
     return (
         <div className='
@@ -52,18 +57,30 @@ export default function Register() {
                             p-6
                             shadow-xl
                         ' 
-                    onSubmit={handleSubmit(handleCreateAccount)}>
+                    >
 
                         <span className='text-blue-button-primary font-semibold text-3xl'>Create character description</span>
 
-                        <div>
-                            <img src="" alt="" />
+                        <div className='flex text-3xl font-semibold items-center gap-6'>
+                            <img width='100' className='rounded-md' src="/images/229.jpeg" alt="" />
                             <p>Morty Sanchez</p>
                         </div>
 
-                        <select name="" id="">
-                            <option value="">Character Ref:</option>
-                        </select>
+                        <div className='flex justify-between w-5/6'>
+                            <select value={page} onChange={(e) => setPage(e.target.value)} className='w-1/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' name="" id="">
+                                <option selected disabled value=''>Page:</option>
+                                {[...Array(count+1)].map((e, i) => (
+                                     i != 0 && <option value={i} key={i}>{i}</option>
+                                ))}
+                            </select>
+
+                            <select onChange={(e) => setCharacterSelected(e.target.value)} value={characterSelected.name} className='w-2/3 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' name="" id="">
+                                <option value="">Character Ref:</option>
+                                {list.map(character => (
+                                    <option key={character.id} value={character.id}>{character.name}</option>
+                                ))}
+                            </select>
+                        </div>
 
                         <input 
                             {...register('name')}
@@ -101,3 +118,17 @@ export default function Register() {
         </div>
     )
 }
+
+export async function getStaticProps(context) {
+    const result = await fetch(`https://rickandmortyapi.com/api/character`);
+    const json = await result.json();
+
+    
+    // const charactersNames = completeList.data.characters.results
+
+    return {
+      props: { 
+          count:json.info.pages, 
+        }
+    }
+} 
