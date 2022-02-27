@@ -37,9 +37,9 @@ export default function Login() {
                     <div className='w-45% rounded-l-xl'
                         style={{backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: '-845px -200px', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                         >
-                            {/* { user && (
+                            { user && (
                                 <p>{user}</p>
-                            )} */}
+                            )}
                     </div>
 
                     <form className='
