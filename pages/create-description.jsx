@@ -60,7 +60,7 @@ export default function Register({ count }) {
         '>
             <Modal text={ error }/>
 
-                <div className='lg:flex w-11/12 shadow-xl'>
+                <div className='lg:flex lg:w-11/12 xl:w-55% shadow-xl'>
                     <div className='w-45% rounded-l-xl'
                         style={{backgroundSize: 'contain', backgroundPosition: 'center', backgroundAttachment: 'fixed', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                     >
