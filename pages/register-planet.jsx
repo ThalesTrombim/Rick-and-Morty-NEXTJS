@@ -48,7 +48,7 @@ export default function Resgister() {
 
     return (
         <div className='bg-homebg-dark h-screen flex items-center justify-center'>
-            <Modal text={ error } />
+            <Modal text={ modalInfo } />
 
             <main className='w-11/12 mt-20 md:flex md:w-11/12 md:m-auto'>
                 <div className='bg-card-bg md:w-1/3 md:p-7 text-white md:rounded-l-xl rounded-xl p-3'>
