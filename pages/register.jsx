@@ -7,7 +7,7 @@ import { Modal } from '../src/components/Modal';
 export default function Register() {
     const { register, handleSubmit } = useForm();
     const { createAccount } = useContext(AuthContext);
-    const { setActive, error, setError } = useContext(ModalContext);
+    const { setActive, modalInfo, setModalInfo } = useContext(ModalContext);
 
     async function handleCreateAccount(data) {
         const res = await createAccount(data);
@@ -18,7 +18,7 @@ export default function Register() {
         console.log(res.error)
 
         setActive(true)
-        setError({ type: 'Error', msg: res.error });
+        setModalInfo({ type: 'Error', msg: res.error });
     }
 
     return (
@@ -31,7 +31,7 @@ export default function Register() {
             items-center
             justify-center
         '>
-            <Modal text={ error }/>
+            <Modal text={ modalInfo }/>
 
                 <div className='lg:flex w-11/12 xl:w-55% shadow-xl'>
                     <div className='w-45% rounded-l-xl'

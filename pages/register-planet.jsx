@@ -10,7 +10,7 @@ import { Modal } from '../src/components/Modal';
 export default function Resgister() {
     const [ img, setImg ] = useState('images/planet.png')
     const input = 'w-full h-12 rounded-lg bg-transparent border-2 pl-3 text-lg';
-    const { setActive, error, setError } = useContext(ModalContext);
+    const { setActive, modalInfo, setModalInfo } = useContext(ModalContext);
 
     const { register, handleSubmit } = useForm();
 
@@ -34,7 +34,7 @@ export default function Resgister() {
 
             } catch(err) {
                 setActive(true)
-                setError({ type: 'Error', text : err.response.data.errorCode })
+                setModalInfo({ type: 'Error', text : err.response.data.errorCode })
 
                 console.log(err.response.data)
 

@@ -23,8 +23,7 @@ export function AuthProvider({ children }) {
                 });
 
                 const { name } = res.data.decoded;
-                
-                setUser(name)
+                setUser(name);
 
             } catch(err) {
                 console.log(err.response.data)

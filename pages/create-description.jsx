@@ -1,14 +1,13 @@
 import { useForm } from 'react-hook-form';
-import { useContext } from 'react';
-import { AuthContext } from '../src/contexts/AuthContext';
 import { ModalContext } from '../src/contexts/ModalContext';
 import { Modal } from '../src/components/Modal';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { api } from '../src/services/api';
+import { parseCookies } from 'nookies';
 
 export default function Register({ count }) {
     const { register, handleSubmit } = useForm();
-    const { setActive, error, setError } = useContext(ModalContext);
+    const { setActive, modalInfo, setModalInfo } = useContext(ModalContext);
     const [ page, setPage ] = useState(1)
     const [ list, setList ] = useState([]);
     const [ characterSelected, setCharacterSelected ] = useState({})
@@ -30,15 +29,23 @@ export default function Register({ count }) {
     
 
     async function handleCreateDesc(data) {
-        const res = await createAccount(data);
+        const { id_reference, desc, image } = data
 
-        if(!res.error){
-            return
+        console.log(data)
+        const { 'randm.token': token } = parseCookies();
+
+        try {
+            const res = await api.post('/description', { id_reference, desc, image }, { 
+                headers: { authorization: `Bearer ${token}`}
+            } )
+            console.log(res)
+        } catch(err) {
+            const error = err.response.data;
+
+            setActive(true)
+            setModalInfo({ type:'Error', msg: error.error})
+            return error
         }
-        console.log(res.error)
-
-        setActive(true)
-        setError({ type: 'Error', msg: res.error });
     }
 
     return (
@@ -51,9 +58,9 @@ export default function Register({ count }) {
             items-center
             justify-center
         '>
-            <Modal text={ error }/>
+            <Modal text={ modalInfo }/>
 
-                <div className='lg:flex w-11/12 shadow-xl'>
+                <div className='lg:flex lg:w-11/12 xl:w-55% shadow-xl'>
                     <div className='w-45% rounded-l-xl'
                         style={{backgroundSize: 'contain', backgroundPosition: 'center', backgroundAttachment: 'fixed', backgroundRepeat: 'no-repeat', backgroundImage: `url('images/backgrounds/main-bg.png')`}}
                     >
@@ -90,7 +97,7 @@ export default function Register({ count }) {
                                 ))}
                             </select>
 
-                            <select onChange={(e) => setCharacterSelected(e.target.value)} value={characterSelected.name} className='w-2/3 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' name="" id="">
+                            <select {...register('id_reference')}  onChange={(e) => setCharacterSelected(e.target.value)} value={characterSelected.name} className='w-2/3 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' name="id_reference" id="">
                                 <option value="">Character Ref:</option>
                                 {list.map(character => (
                                     <option key={character.id} value={character.id}>{character.name}</option>
@@ -99,15 +106,16 @@ export default function Register({ count }) {
                         </div>
 
                         <input 
-                            {...register('name')}
+                            {...register('image')}
                             className=' w-5/6 h-12 border-b-2 border-gray-400 focus:outline-none focus:border-0' 
                             type="text" 
                             placeholder='Image URL:'
-                            name='image_url'
+                            name='image'
                         />
 
                         <textarea 
-                            name="description" 
+                            name="desc"
+                            {...register('desc')}
                             placeholder='Description:'
                             id="" 
                             className='border-2 rounded-lg w-5/6 resize-none h-40'
