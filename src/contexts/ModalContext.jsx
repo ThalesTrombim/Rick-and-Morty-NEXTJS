@@ -4,10 +4,10 @@ export const ModalContext = createContext({});
 
 export function ModalProvider({ children }) {
     const [ active, setActive ] = useState(false)
-    const [ error, setError ] = useState({});
+    const [ modalInfo, setModalInfo ] = useState({});
 
     return (
-        <ModalContext.Provider value={{ active, setActive, error, setError }}>
+        <ModalContext.Provider value={{ active, setActive, modalInfo, setModalInfo }}>
             { children }
         </ModalContext.Provider>
     )

@@ -7,7 +7,7 @@ import { parseCookies } from 'nookies';
 
 export default function Register({ count }) {
     const { register, handleSubmit } = useForm();
-    const { setActive, error, setError } = useContext(ModalContext);
+    const { setActive, modalInfo, setModalInfo } = useContext(ModalContext);
     const [ page, setPage ] = useState(1)
     const [ list, setList ] = useState([]);
     const [ characterSelected, setCharacterSelected ] = useState({})
@@ -43,7 +43,7 @@ export default function Register({ count }) {
             const error = err.response.data;
 
             setActive(true)
-            setError({ type:'Error', msg: error.error})
+            setModalInfo({ type:'Error', msg: error.error})
             return error
         }
     }
@@ -58,7 +58,7 @@ export default function Register({ count }) {
             items-center
             justify-center
         '>
-            <Modal text={ error }/>
+            <Modal text={ modalInfo }/>
 
                 <div className='lg:flex lg:w-11/12 xl:w-55% shadow-xl'>
                     <div className='w-45% rounded-l-xl'
