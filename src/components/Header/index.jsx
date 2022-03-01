@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function Header(){
     const [ mobileActive, setMobileActive ] = useState(false);
+    const { user } = useContext(AuthContext);
 
     return(
         <div className="
@@ -11,7 +14,6 @@ function Header(){
             text-2xl
             w-full
             lg:flex
-            lg:w-full
             lg:py-6
             lg:px-3
         "
@@ -38,25 +40,25 @@ function Header(){
                 </div>
                 <div className='
                     hidden
-                    lg:flex
-                    lg:items-center
-                    lg:gap-12
+                    md:flex
+                    md:items-center
+                    md:gap-12
                 '>
                     <a href="/">Home</a>
                     <a href="/search">Search</a> 
                     <a href="/developer">Developer</a>
                     <a href="login" className='
                         border-gray-400
-                        lg:border-2
-                        lg:rounded-xl
-                        lg:w-32
-                        lg:h-14
-                        lg:flex
-                        lg:items-center
-                        lg:justify-center
+                        md:border-2
+                        md:rounded-xl
+                        md:w-32
+                        md:h-14
+                        md:flex
+                        md:items-center
+                        md:justify-center
                         hover:bg-blue-button-primary
                     '>
-                        login
+                        { user ? `${ user }` : 'login' }
                     </a>       
                 </div>
             </div>
@@ -75,7 +77,7 @@ function Header(){
                     <a href="/search">Search</a> 
                     <a href="/developer">Developer</a>
                     <a href="login">
-                        login
+                        { user ? `Hi, ${ user }` : 'login' }
                     </a>       
                 </div>
                 )
