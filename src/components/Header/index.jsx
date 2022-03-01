@@ -47,9 +47,6 @@ function Header(){
                     <a href="/">Home</a>
                     <a href="/search">Search</a> 
                     <a href="/developer">Developer</a>
-                    {
-                        user
-                    }
                     <a href="login" className='
                         border-gray-400
                         md:border-2
@@ -80,7 +77,7 @@ function Header(){
                     <a href="/search">Search</a> 
                     <a href="/developer">Developer</a>
                     <a href="login">
-                        login
+                        { user ? `Hi, ${ user }` : 'login' }
                     </a>       
                 </div>
                 )
