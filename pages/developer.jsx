@@ -1,3 +1,5 @@
+import { NextHead } from '../src/components/Head'
+
 export default function Developer() {
     return (
         <div id='container' className='
@@ -12,6 +14,9 @@ export default function Developer() {
             items-center
             justify-center
             '>
+            <NextHead>
+                Developer
+            </NextHead>
             <main className='text-white flex flex-col lg:flex-row items-center gap-12'>
                 <div className='w-72 h-72 bg-cover rounded-full' style={{backgroundImage: `url('images/dev.jpg')`}}></div>
                 <div className='lg:flex lg:flex-col lg:gap-3'>

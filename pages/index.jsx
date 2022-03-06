@@ -1,4 +1,6 @@
+import Head from 'next/head';
 import Card from '../src/components/Card';
+import { NextHead } from '../src/components/Head';
 
 export default function Home({ list }){
   return (
@@ -12,6 +14,9 @@ export default function Home({ list }){
       lg:w-full
       lg:h-auto
     ">
+      <NextHead>
+        Home
+      </NextHead>
       <div className=""
       //  style={{backgroundImage: `url('images/background.png')`}}
       >
@@ -114,13 +119,14 @@ export default function Home({ list }){
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 const res = await fetch('https://rick-and-morty-nextjs-pearl.vercel.app/api/getAll')
 const json = await res.json();
   
   return {
     props: {
       list: json.list
-    }
+    },
+    revalidate: 60 * 60 * 24 * 30
   };
-}
+} ''

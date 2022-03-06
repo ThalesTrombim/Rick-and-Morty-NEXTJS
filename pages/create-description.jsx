@@ -4,6 +4,7 @@ import { Modal } from '../src/components/Modal';
 import { useState, useEffect, useContext } from 'react';
 import { api } from '../src/services/api';
 import { parseCookies } from 'nookies';
+import { NextHead } from '../src/components/Head';
 
 export default function Register({ count }) {
     const { register, handleSubmit } = useForm();
@@ -58,6 +59,9 @@ export default function Register({ count }) {
             items-center
             justify-center
         '>
+            <NextHead>
+                Create description
+            </NextHead>
             <Modal text={ modalInfo }/>
 
                 <div className='lg:flex lg:w-11/12 xl:w-55% shadow-xl'>

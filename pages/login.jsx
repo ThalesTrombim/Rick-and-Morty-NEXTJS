@@ -5,6 +5,7 @@ import { Modal } from '../src/components/Modal';
 import { ModalContext } from '../src/contexts/ModalContext';
 import { destroyCookie } from 'nookies';
 import Router from 'next/router';
+import { NextHead } from '../src/components/Head';
 
 export default function Login() {
     const { register, handleSubmit } = useForm();
@@ -37,6 +38,9 @@ export default function Login() {
             items-center
             justify-center
             '>
+            <NextHead>
+                Login
+            </NextHead>
             <Modal text={modalInfo} />
 
                 <div className='lg:flex lg:w-11/12 xl:w-55% shadow-xl'>
