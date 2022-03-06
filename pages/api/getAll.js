@@ -6,7 +6,7 @@ export default async (req, res) => {
       }
       
     var num = RandomPage(0, 35);
-    var num = 1;
+    num = 1;
 
     const result = await fetch(`https://rickandmortyapi.com/api/character/?page=${num}`);
     const json = await result.json();
