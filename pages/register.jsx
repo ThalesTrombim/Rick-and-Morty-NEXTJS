@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
 import { ModalContext } from '../src/contexts/ModalContext';
 import { Modal } from '../src/components/Modal';
+import { NextHead } from '../src/components/Head';
 
 export default function Register() {
     const { register, handleSubmit } = useForm();
@@ -31,6 +32,9 @@ export default function Register() {
             items-center
             justify-center
         '>
+            <NextHead>
+                Create account
+            </NextHead>
             <Modal text={ modalInfo }/>
 
                 <div className='lg:flex w-11/12 xl:w-55% shadow-xl'>

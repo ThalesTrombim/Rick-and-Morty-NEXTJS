@@ -1,4 +1,6 @@
+import Head from 'next/head';
 import Card from '../src/components/Card';
+import { NextHead } from '../src/components/Head';
 
 export default function Home({ list }){
   return (
@@ -12,6 +14,9 @@ export default function Home({ list }){
       lg:w-full
       lg:h-auto
     ">
+      <NextHead>
+        Home
+      </NextHead>
       <div className=""
       //  style={{backgroundImage: `url('images/background.png')`}}
       >

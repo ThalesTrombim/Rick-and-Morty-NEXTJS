@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Card from '../src/components/Card';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { NextHead } from '../src/components/Head';
 
 export default function Search() {
     const [character, setCharacter ] = useState([]);
@@ -77,6 +78,9 @@ export default function Search() {
             text-white
             `}
             >
+            <NextHead>
+                Search
+            </NextHead>
             <div className="flex flex-col items-center">
                 <form onSubmit={(e) => {
                         e.preventDefault();

@@ -6,6 +6,7 @@ import { ModalContext } from '../src/contexts/ModalContext';
 
 import Router from 'next/router';
 import { Modal } from '../src/components/Modal';
+import { NextHead } from '../src/components/Head';
 
 export default function Resgister() {
     const [ img, setImg ] = useState('images/planet.png')
@@ -48,6 +49,9 @@ export default function Resgister() {
 
     return (
         <div className='bg-homebg-dark h-screen flex items-center justify-center'>
+            <NextHead>
+                Register planet
+            </NextHead>
             <Modal text={ modalInfo } />
 
             <main className='w-11/12 mt-20 md:flex md:w-11/12 md:m-auto'>
