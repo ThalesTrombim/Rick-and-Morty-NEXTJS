@@ -119,13 +119,14 @@ export default function Home({ list }){
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 const res = await fetch('https://rick-and-morty-nextjs-pearl.vercel.app/api/getAll')
 const json = await res.json();
   
   return {
     props: {
       list: json.list
-    }
+    },
+    revalidate: 60 * 60 * 24 * 30
   };
-}
+} ''
