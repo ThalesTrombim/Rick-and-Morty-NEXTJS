@@ -13,13 +13,13 @@ export default function Login() {
     const { setActive, modalInfo, setModalInfo } = useContext(ModalContext);
 
     async function handleSignIn(data) {
-            const res = await signIn(data);
+        const res = await signIn(data);
 
-            if(!res.error){
-                return
-            } 
-            setActive(true)
-            setModalInfo({ type:'Error', msg: res.error})
+        if(!res.error){
+            return
+        }
+        setActive(true)
+        setModalInfo({ type:'Error', msg: res.error})
     }
 
     function logout() {
