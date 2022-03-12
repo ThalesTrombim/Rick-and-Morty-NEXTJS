@@ -16,11 +16,7 @@ export function AuthProvider({ children }) {
 
         if(token){
             try {
-                const res = await api.get('/profile', {
-                    headers: {
-                        authorization: `Bearer ${token}`
-                    }
-                });
+                const res = await api.get('/profile');
 
                 const { name } = res.data.decoded;
                 setUser(name);

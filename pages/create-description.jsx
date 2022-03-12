@@ -32,14 +32,10 @@ export default function Register({ count }) {
     async function handleCreateDesc(data) {
         const { id_reference, desc, image } = data
 
-        console.log(data)
-        const { 'randm.token': token } = parseCookies();
-
         try {
-            const res = await api.post('/description', { id_reference, desc, image }, { 
-                headers: { authorization: `Bearer ${token}`}
-            } )
-            console.log(res)
+
+            await api.post('/description', { id_reference, desc, image })
+            
         } catch(err) {
             const error = err.response.data;
 
