@@ -6,6 +6,7 @@ import { ModalContext } from '../src/contexts/ModalContext';
 import { destroyCookie } from 'nookies';
 import Router from 'next/router';
 import { NextHead } from '../src/components/Head';
+import Link from 'next/link';
 
 export default function Login() {
     const { register, handleSubmit } = useForm();
@@ -127,6 +128,22 @@ export default function Login() {
                             <img width={70} src="images/icons/user.png" alt="" />
                             <h3>Hello { user }!</h3>  
 
+                            <a className='
+                                    bg-gradient-to-r
+                                    from-blue-button-secondary-left
+                                    to-blue-button-secondary-right
+                                    rounded-xl
+                                    h-12
+                                    px-6
+                                    flex
+                                    items-center
+                                    text-white
+                                    text-lg' 
+                            href={'/create-description'}
+                            >
+                                Create description
+                            </a>
+
                             <button 
                                 onClick={() => logout()}
                                 className='
@@ -135,7 +152,7 @@ export default function Login() {
                                     to-blue-button-secondary-right
                                     rounded-xl
                                     h-12
-                                    w-36
+                                    w-48
                                     text-white
                                     text-lg
                                 '

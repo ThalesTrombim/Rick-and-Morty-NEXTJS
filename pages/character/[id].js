@@ -22,7 +22,6 @@ export default function CharacterItem({ character, info }) {
                         <p className="border-2 rounded-xl p-1">Status: {character.status}</p>
                         <p className="border-2 rounded-xl p-1">Species: {character.species}</p>
                     </div>
-                    {/* <p className={data[`${name}`].text} >{data[`${name}`].description}</p> */}
                     <p className={data[`${name}`].text} >{info.desc}</p>
                 </div>
 
@@ -36,10 +35,16 @@ export async function getServerSideProps(context) {
     const res = await fetch(`https://rick-and-morty-nextjs-pearl.vercel.app/api/character/${id}`);
     const json = await res.json()
 
-    const urlBack = `${process.env.NEXT_PUBLIC_BACKEND}description/1`
+    let info;
+    const urlBack = `${process.env.NEXT_PUBLIC_BACKEND}description/${id}`
     const infos_desc = await fetch(urlBack);
-    const info = await infos_desc.json()
-    
+
+    if(infos_desc.status !== 400) {
+        info = await infos_desc.json()
+    } else {
+        info = { desc : data.Default.description}
+    }
+
     return {
         props: {
             character: json.info,
