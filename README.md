@@ -34,4 +34,4 @@ In this project I used Next Js and TailwindCss for styles. On the technical side
 
 ## Visit
 
-[Rick and morty api](https://rick-and-morty-nextjs-pearl.vercel.app/)
+[Rick and morty NextJs](https://rick-and-morty-nextjs-pearl.vercel.app/)
