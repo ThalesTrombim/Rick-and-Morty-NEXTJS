@@ -1,4 +1,6 @@
-# Rick and Morty | NextJS
+<img width='250' src="/public/images/logo.png" />
+
+#  Rick and Morty | NextJS 
 
 
 ## About Project
