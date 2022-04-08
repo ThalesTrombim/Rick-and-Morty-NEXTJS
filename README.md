@@ -1,49 +1,35 @@
 # Rick and Morty | NextJS
 
+
 ## About Project
 
 This project was made for study more about NextJs.
 
 The gereneral ideia is list and find series characters, and also read a little about them.
 
-<img width="30" src="https://img.icons8.com/color/344/search--v1.png" /> 
-### Overview
+
+### 🔎 Overview
 
 In this project I used Next Js and TailwindCss for styles. On the technical side, the home page used getStaticProps from nexts and the character page used getServerSideProps from NextJs as well. The characters list is come from [Rick and morty api](https://rickandmortyapi.com/). And has its own backend api for registering character descriptions.
 
-:eyeglasses:
-### Technologies
+### 💻 Technologies
 
-<div style='display: flex;'>
-  <img width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" />
-  
+<div style='display: flex; gap: 24px'>
+  <img width='70' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />        
+  <img width='70' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
+  <img width='70' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain-wordmark.svg" />                      
 </div>
 
+### 🔥 Applied knowledge
+  
+  - API-REST consuming
+  - Search in API using graphql
+  - Authentication in own backend api, using jwt
+  - Pages using ssg and ssr from nextjs
+  - Requisitions with axios
+  - Persisting data in cookies
+  - Responsive design
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## Visit
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
-
-## Preview
-
-Preview the example live on 
-
-[![Visit Project](rick-and-morty-nextjs-pearl.vercel.app/)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+[Rick and morty api](https://rick-and-morty-nextjs-pearl.vercel.app/)
