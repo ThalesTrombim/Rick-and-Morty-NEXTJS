@@ -6,11 +6,19 @@ This project was made for study more about NextJs.
 
 The gereneral ideia is list and find series characters, and also read a little about them.
 
-<img width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" />
+<img width="30" src="https://img.icons8.com/color/344/search--v1.png" /> 
+### Overview
 
-<img width="30" src="https://img.icons8.com/color/344/search--v1.png" /> ### Overview
+In this project I used Next Js and TailwindCss for styles. On the technical side, the home page used getStaticProps from nexts and the character page used getServerSideProps from NextJs as well. The characters list is come from [Rick and morty api](https://rickandmortyapi.com/). And has its own backend api for registering character descriptions.
 
-In this project i used Nextjs and TailwindCss for styles. In technnical part, the home page used getStaticProps from nexts and character's page used getServerSideProps from NextJs too.
+:eyeglasses:
+### Technologies
+
+<div style='display: flex;'>
+  <img width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" />
+  
+</div>
+
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
@@ -18,7 +26,7 @@ It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-
 
 ## Preview
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+Preview the example live on 
 
 [![Visit Project](rick-and-morty-nextjs-pearl.vercel.app/)
 
