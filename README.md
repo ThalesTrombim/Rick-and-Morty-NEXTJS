@@ -1,6 +1,12 @@
-# Rick and Morty | Next.JS
+# Rick and Morty | NextJS
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" />        
+## About Project
+
+This project was made for study more about NextJs.
+
+The gereneral ideia is list and find series characters, and also read a little about them.
+
+<img width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" />        
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
