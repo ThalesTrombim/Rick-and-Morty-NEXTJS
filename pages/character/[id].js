@@ -10,10 +10,10 @@ export default function CharacterItem({ character, info }) {
     }
 
     return (
-        <div className="w-full md:h-screen bg-cover bg-center p-2 md:px-11 flex items-center justify-center" style={{ backgroundImage: `url(${data[`${name}`].image})` }}>
+        <div className="h-screen w-full md:h-screen bg-cover bg-center p-6 md:px-11 flex items-center justify-center" style={{ backgroundImage: `url(${data[`${name}`].image})` }}>
             <div className="md:flex bg-white md:py-14 rounded-xl justify-around align-center">
                 <div className=''>
-                    <img className="md:w-auto w-full rounded-xl" src={character.image} />
+                    <img className="md:w-auto w-full rounded-t-xl md:rounded-xl" src={character.image} />
                 </div>
                 <div className="grid md:w-1/2 p-2 md:p-0 gap-1">
                     <h2 className="md:text-7xl text-2xl text-purple font-bold">{character.name}</h2>

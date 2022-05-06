@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
 import { Modal } from '../src/components/Modal';
@@ -7,16 +7,19 @@ import { destroyCookie } from 'nookies';
 import Router from 'next/router';
 import { NextHead } from '../src/components/Head';
 import Link from 'next/link';
+import { api } from '../src/services/api';
 
 export default function Login() {
     const { register, handleSubmit } = useForm();
-    const { signIn, user } = useContext(AuthContext);
+    const { signIn, user, setUser } = useContext(AuthContext);
     const { setActive, modalInfo, setModalInfo } = useContext(ModalContext);
 
     async function handleSignIn(data) {
         const res = await signIn(data);
 
         if(!res.error){
+
+            Router.push('/'); 
             return
         }
         setActive(true)
@@ -25,6 +28,7 @@ export default function Login() {
 
     function logout() {
         destroyCookie(undefined, 'randm.token');
+        setUser(null)
         Router.push('/')
     }
 

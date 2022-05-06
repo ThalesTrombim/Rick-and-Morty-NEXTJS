@@ -1,6 +1,6 @@
 export default function Card({ character }){
     return (
-        <a key={character.id} href={`/character/${character.id}`} className=''>
+        <a href={`/character/${character.id}`} className=''>
             <div className=''>
                 <img className="rounded-t-2xl w-full" src={character.image} alt={character.name} />
                 <div className='rounded-b-2xl p-3 flex flex-col bg-gradient-to-r from-card-left to-card-right'>

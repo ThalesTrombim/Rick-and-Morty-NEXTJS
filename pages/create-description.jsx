@@ -34,8 +34,10 @@ export default function Register({ count }) {
 
         try {
 
-            await api.post('/description', { id_reference, desc, image })
-            
+            const res = await api.post('/description', { id_reference, desc, image })
+            setActive(true)
+            setModalInfo({ type:'Success', msg: res.data})
+
         } catch(err) {
             const error = err.response.data;
 
