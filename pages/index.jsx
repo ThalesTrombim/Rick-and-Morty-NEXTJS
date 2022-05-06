@@ -31,7 +31,7 @@ export default function Home({ list }){
           xl:w-2/3
           xl:m-auto
         ">
-          <div className='flex text-center flex-col gap-6 py-6 lg:text-left lg:flex lg:flex-col lg:gap-3 xl:gap-6'>
+          <div className='flex text-center flex-col gap-6 py-6 lg:text-left lg:flex lg:flex-col lg:gap-10 xl:gap-6'>
             <h1 className="text-6xl">
               Rick and NextJs
             </h1>
@@ -91,7 +91,15 @@ export default function Home({ list }){
         '
         style={{backgroundImage: `url('images/backgrounds/main-bg.png')`}}
       >
-        <div id="list-container" className="
+        <div id="list-container" 
+        className="
+          grid
+          p-6
+          gap-6
+          sm:grid
+          sm:p-0
+          sm:grid-cols-2
+          sm:gap-6
           lg:mt-12
           lg:grid
           lg:grid-cols-3
@@ -103,7 +111,7 @@ export default function Home({ list }){
           " 
         >
           {list.map( item => (
-            <Card character={ item }/>
+            <Card key={item.id} character={ item }/>
           ))}
         </div>
         <div className='lg:mt-24 lg:mb-3 xl:w-full xl:mb-6 xl:font-semibold xl:text-2xl'>

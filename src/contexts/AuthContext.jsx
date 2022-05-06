@@ -40,7 +40,14 @@ export function AuthProvider({ children }) {
                 maxAge: 60 * 60 * 24, // 1 day
             })
 
-            Router.push('/');
+            const dataUser = await api.get('/profile', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            const { name } = dataUser.data.decoded;
+            setUser(name);
+            
             return token;
 
         } catch(err) {
@@ -70,7 +77,7 @@ export function AuthProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, user, signIn, createAccount }}>
+        <AuthContext.Provider value={{ isAuthenticated, user, signIn, createAccount, setUser }}>
             { children }
         </AuthContext.Provider>
     )
