@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
 
 function Header(){
     const [ mobileActive, setMobileActive ] = useState(false);
-    const { user } = useContext(AuthContext);
 
     return(
         <div className="
@@ -30,9 +27,9 @@ function Header(){
                 xl:w-2/3
                 xl:m-auto
             ">
-                <div className=''>
+                <div className="flex items-center content-around gap-12">
                     <a href="/">
-                        <img src="/images/logo.png" alt="Rick and Morty" className="w-48 m-auto h-16" />
+                        <img src="/images/rick-and-morty-31028.png" alt="Rick and Morty" className="w-12" />
                     </a>
                 </div>
                 <div onClick={() => setMobileActive(!mobileActive)} className='sm:hidden'>
@@ -43,23 +40,10 @@ function Header(){
                     md:flex
                     md:items-center
                     md:gap-12
+                    text-base
                 '>
                     <a href="/">Home</a>
                     <a href="/search">Search</a> 
-                    <a href="/developer">Developer</a>
-                    <a href="/login" className='
-                        border-gray-400
-                        md:border-2
-                        md:rounded-xl
-                        md:w-32
-                        md:h-14
-                        md:flex
-                        md:items-center
-                        md:justify-center
-                        hover:bg-blue-button-primary
-                    '>
-                        { user ? `${ user }` : 'login' }
-                    </a>       
                 </div>
             </div>
 
@@ -75,10 +59,7 @@ function Header(){
                 '>
                     <a href="/">Home</a>
                     <a href="/search">Search</a> 
-                    <a href="/developer">Developer</a>
-                    <a href="/login">
-                        { user ? `Hi, ${ user }` : 'login' }
-                    </a>       
+                    <a href="/developer">Developer</a>    
                 </div>
                 )
             }
