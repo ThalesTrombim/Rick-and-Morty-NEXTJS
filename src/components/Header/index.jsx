@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
 
-function Header(){
-    const [ mobileActive, setMobileActive ] = useState(false);
+function Header() {
+    const [mobileActive, setMobileActive] = useState(false);
 
-    return(
+    return (
         <div className="
+            container
+            flex
+            mx-auto
             absolute 
-            text-white
             font-semibold
             text-2xl
             w-full
-            lg:flex
-            lg:py-6
-            lg:px-3
+            px-2
+            py-8
+            text-center
+            transform -translate-x-1/2 left-1/2
+      
         "
         >
             <div className="
                 flex
                 justify-between
                 items-center
-                px-6
-                lg:w-full 
+                w-full 
                 lg:flex 
                 lg:items-center 
                 lg:justify-between
-                xl:w-2/3
-                xl:m-auto
             ">
                 <div className="flex items-center content-around gap-12">
                     <a href="/">
@@ -33,7 +34,11 @@ function Header(){
                     </a>
                 </div>
                 <div onClick={() => setMobileActive(!mobileActive)} className='sm:hidden'>
-                    <img width={25} src="/images/icons/menu.png" alt="" />
+                    <svg viewBox="0 0 100 80" width="40" height="40">
+                        <rect width="100" height="20"></rect>
+                        <rect y="30" width="100" height="20"></rect>
+                        <rect y="60" width="100" height="20"></rect>
+                    </svg>
                 </div>
                 <div className='
                     hidden
@@ -43,11 +48,11 @@ function Header(){
                     text-base
                 '>
                     <a href="/">Home</a>
-                    <a href="/search">Search</a> 
+                    <a href="/search">Search</a>
                 </div>
             </div>
 
-            { mobileActive && (
+            {mobileActive && (
                 <div className='
                     bg-main-background-right 
                     flex
@@ -58,10 +63,10 @@ function Header(){
                     font-normal
                 '>
                     <a href="/">Home</a>
-                    <a href="/search">Search</a> 
-                    <a href="/developer">Developer</a>    
+                    <a href="/search">Search</a>
+                    <a href="/developer">Developer</a>
                 </div>
-                )
+            )
             }
         </div>
     )
