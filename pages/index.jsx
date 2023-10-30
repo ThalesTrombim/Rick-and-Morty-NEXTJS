@@ -26,6 +26,7 @@ export default function Home({ list }) {
           justify-between
           flex
           items-center
+          py-8
         ">
           <div className='flex text-center flex-col lg:text-left'>
             <h1 className="text-6xl font-bold">
@@ -38,11 +39,11 @@ export default function Home({ list }) {
               from the Rick and Morty series and some information
               about them too.
             </p>
-            <div className='flex justify-around lg:flex lg:w-2/3 lg:justify-between xl:w-1/2'>
-
+            <div className='flex sm:items-center justify-around lg:flex lg:w-2/3 lg:justify-between xl:w-1/2 py-4'>
+              <input className='border-gray-600-200 border-2 h-10 p-4 w-full rounded-lg ' type="text" placeholder="Find a character" />
             </div>
           </div>
-          <div className='hidden lg:flex w-1/2'>
+          <div className=' lg:flex w-1/2'>
             <img src="/images/backgrounds/rick-and-morty-portal.png" alt="" />
           </div>
         </main>
