@@ -33,13 +33,18 @@ function Header() {
                         <img src="/images/rick-and-morty-31028.png" alt="Rick and Morty" className="w-12" />
                     </a>
                 </div>
-                <div onClick={() => setMobileActive(!mobileActive)} className='sm:hidden'>
-                    <svg viewBox="0 0 100 80" width="40" height="40">
-                        <rect width="100" height="20"></rect>
-                        <rect y="30" width="100" height="20"></rect>
-                        <rect y="60" width="100" height="20"></rect>
-                    </svg>
+                <div className='flex pr-6'>
+                    <div onClick={() => setMobileActive(!mobileActive)} className='sm:hidden'>
+                        {!mobileActive &&
+                            <svg viewBox="0 0 100 80" width="40" height="20">
+                                <rect width="80" height="10"></rect>
+                                <rect y="30" width="80" height="10"></rect>
+                                <rect y="60" width="80" height="10"></rect>
+                            </svg>
+                        }
+                    </div>
                 </div>
+
                 <div className='
                     hidden
                     md:flex
@@ -54,17 +59,32 @@ function Header() {
 
             {mobileActive && (
                 <div className='
-                    bg-main-background-right 
+                    absolute
+                    right-0
+                    z-10
+                    border-2
+                    mr-2
+                    rounded-md
                     flex
                     flex-col
-                    gap-3
-                    pl-6
-                    py-3
                     font-normal
+                    justify-end
+                    text-sm
+                    md:hidden
+                    sh
                 '>
-                    <a href="/">Home</a>
-                    <a href="/search">Search</a>
-                    <a href="/developer">Developer</a>
+                    <div className='font-bold justify-end items-end text-right mr-4 mt-2' onClick={() => setMobileActive(!mobileActive)}>x</div>
+                    <div className='flex
+                        flex-col
+                        gap-3
+                        p-3
+                        text-left
+                        font-normal
+                        text-sm'>
+                        <a href="/">Home</a>
+                        <a href="/search">Search</a>
+                        <a href="/developer">Developer</a>
+                    </div>
                 </div>
             )
             }
