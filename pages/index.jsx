@@ -53,25 +53,21 @@ export default function Home({ list }) {
           lg:bg-no-repeat
           lg:bg-cover
         '
-        style={{ backgroundImage: `url('images/backgrounds/main-bg.png')` }}
+        //style={{ backgroundImage: `url('images/backgrounds/main-bg.png')` }}
       >
         <div id="list-container"
           className="
           grid
-          p-6
           gap-6
           sm:grid
           sm:p-0
           sm:grid-cols-2
-          sm:gap-6
           lg:mt-12
           lg:grid
           lg:grid-cols-3
           lg:gap-6
-          lg:px-6
-          xl:grid-cols-5
-          xl:w-2/3
           lg:m-auto
+          w-full
           "
         >
           {list.map(item => (
