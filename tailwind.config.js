@@ -52,6 +52,13 @@ module.exports = {
         '68': '17rem',
         '45%': '45%',
         '55%': '55%',
+        'max-util-area': '1240px'
+      },
+      minWidth: {
+        '300px': '300px',
+      },
+      maxWidth: {
+        '200px': '200px',
       },
       height: {
         'xx': '450px',
