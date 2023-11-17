@@ -79,4 +79,5 @@ module.exports = {
         50: '12.1rem'
       }
     }
+  }
 }
