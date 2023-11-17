@@ -1,24 +1,22 @@
-export default function Card({ character }){
+export default function Card({ character }) {
     return (
-        <a href={`/character/${character.id}`} className=''>
-            <div className=''>
-                <img className="rounded-t-2xl w-full" src={character.image} alt={character.name} />
-                <div className='rounded-b-2xl p-3 flex flex-col bg-gradient-to-r from-card-left to-card-right'>
-                    <span className='font-semibold text-2xl'>{ character.name }</span>
-                    <div className='flex justify-between items-center'>
-                        <div className='flex flex-col gap-3 py-3'>
-                            <div className="flex text-lg gap-3">
-                                <img className="" width={28} src={`/images/icons/${character.species}.png`} alt={character.species} />
-                                <p>{character.species}</p>
-                            </div>
-                            <div className="flex text-lg gap-3">
-                                <img className="" width={28} src={`/images/icons/${character.status}.png`} alt={character.status} />
-                                <p>{character.status}</p>
-                            </div>
-                        </div>
-                        <button className="rounded-2xl bg-button-card h-11 w-24">
+        <a href={`/character/${character.id}`} className="hover:rotate-2">
+            <div className='border-2 rounded-lg w-auto'>
+                <div className='rounded-2xl'>
+
+                    <div className='flex flex-col justify-center items-center'>
+                        <img className="w-40 m-6 rounded-full" src={character.image} alt={character.name} />
+
+                        <span className='font-semibold text-sm uppercase'>{character.name}</span>
+                        <p>{character.species}</p>
+                        <p>{character.status}</p>
+                        <button className="rounded-lg bg-green-1000 text-gray-100 h-11 w-24 my-6 text-sm">
                             Read more
                         </button>
+
+                        {/* <img className="" width={28} src={`/images/icons/${character.species}.png`} alt={character.species} /> */}
+
+                        {/* <img className="" width={28} src={`/images/icons/${character.status}.png`} alt={character.status} /> */}
                     </div>
                 </div>
             </div>
